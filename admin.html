@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Anubhaw Study Zone - Admin Panel</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f4f7fb;
+  color:#172033;
+}
+header{
+  background:#071b3a;
+  color:white;
+  padding:18px;
+  font-size:22px;
+  font-weight:bold;
+}
+.container{
+  max-width:900px;
+  margin:25px auto;
+  padding:15px;
+}
+.card{
+  background:white;
+  border-radius:15px;
+  padding:22px;
+  margin-bottom:20px;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+h2{margin-top:0}
+input,select,textarea{
+  width:100%;
+  padding:13px;
+  margin:7px 0 15px;
+  border:1px solid #ccd3df;
+  border-radius:8px;
+  font-size:16px;
+}
+button{
+  border:0;
+  border-radius:8px;
+  padding:13px 18px;
+  font-size:16px;
+  cursor:pointer;
+  background:#0d47a1;
+  color:white;
+}
+button:hover{opacity:.9}
+.logout{background:#d32f2f;float:right}
+#adminPanel{display:none}
+.note{
+  border:1px solid #ddd;
+  border-radius:10px;
+  padding:15px;
+  margin:10px 0;
+}
+.note h3{margin:0 0 8px}
+.delete{
+  background:#d32f2f;
+  margin-top:10px;
+}
+.message{
+  padding:12px;
+  border-radius:8px;
+  margin:10px 0;
+  display:none;
+}
+.success{background:#dff5e4;color:#176b2c}
+.error{background:#ffe1e1;color:#9b1c1c}
+</style>
+</head>
+
+<body>
+
+<header>
+📚 Anubhaw Study Zone
+</header>
+
+<div class="container">
+
+<!-- LOGIN -->
+<div class="card" id="loginBox">
+<h2>🔐 Admin Login</h2>
+
+<input type="email" id="email" placeholder="Admin Email">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<div id="loginMsg" class="message"></div>
+</div>
+
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel">
+
+<div class="card">
+<button class="logout" onclick="logout()">Logout</button>
+<h2>⚙️ Admin Panel</h2>
+<p>Welcome to Anubhaw Study Zone Admin Panel.</p>
+</div>
+
+
+<!-- ADD NOTE -->
+<div class="card">
+<h2>📚 Add New Note</h2>
+
+<input id="title" placeholder="Note Title">
+
+<input id="subject" placeholder="Subject">
+
+<select id="className">
+<option value="">Select Class</option>
+<option>Class 9</option>
+<option>Class 10</option>
+<option>Class 11</option>
+<option>Class 12</option>
+<option>Other</option>
+</select>
+
+<textarea id="description" rows="4"
+placeholder="Note description"></textarea>
+
+<input id="pdfUrl"
+placeholder="PDF / Notes URL">
+
+<button onclick="addNote()">➕ Add Note</button>
+
+<div id="noteMsg" class="message"></div>
+</div>
+
+
+<!-- NOTES LIST -->
+<div class="card">
+<h2>📖 Uploaded Notes</h2>
+<div id="notesList">
+Loading...
+</div>
+</div>
+
+</div>
+</div>
+
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+import {
+ getAuth,
+ signInWithEmailAndPassword,
+ onAuthStateChanged,
+ signOut
+}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+import {
+ getFirestore,
+ collection,
+ addDoc,
+ getDocs,
+ deleteDoc,
+ doc,
+ serverTimestamp
+}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+/* ============================
+   FIREBASE CONFIG
+   ============================ */
+
+const firebaseConfig = {
+  apiKey: "PASTE_YOUR_API_KEY",
+  authDomain: "PASTE_YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "PASTE_YOUR_PROJECT_ID",
+  storageBucket: "PASTE_YOUR_PROJECT_ID.firebasestorage.app",
+  messagingSenderId: "PASTE_YOUR_MESSAGING_SENDER_ID",
+  appId: "PASTE_YOUR_APP_ID"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+
+/* ============================
+   LOGIN
+   ============================ */
+
+window.login = async function(){
+
+  const email =
+    document.getElementById("email").value.trim();
+
+  const password =
+    document.getElementById("password").value;
+
+  const msg =
+    document.getElementById("loginMsg");
+
+  if(!email || !password){
+    showMessage(msg,"Email और password डालो।","error");
+    return;
+  }
+
+  try{
+
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+  }catch(error){
+
+    showMessage(
+      msg,
+      "Login failed: " + error.message,
+      "error"
+    );
+
+  }
+};
+
+
+/* ============================
+   AUTH STATE
+   ============================ */
+
+onAuthStateChanged(auth,user=>{
+
+  if(user){
+
+    document.getElementById("loginBox").style.display="none";
+
+    document.getElementById("adminPanel").style.display="block";
+
+    loadNotes();
+
+  }else{
+
+    document.getElementById("loginBox").style.display="block";
+
+    document.getElementById("adminPanel").style.display="none";
+
+  }
+
+});
+
+
+/* ============================
+   ADD NOTE
+   ============================ */
+
+window.addNote = async function(){
+
+  const title =
+    document.getElementById("title").value.trim();
+
+  const subject =
+    document.getElementById("subject").value.trim();
+
+  const className =
+    document.getElementById("className").value;
+
+  const description =
+    document.getElementById("description").value.trim();
+
+  const pdfUrl =
+    document.getElementById("pdfUrl").value.trim();
+
+  const msg =
+    document.getElementById("noteMsg");
+
+
+  if(!title || !subject || !className || !pdfUrl){
+
+    showMessage(
+      msg,
+      "Title, Subject, Class और PDF URL जरूरी हैं।",
+      "error"
+    );
+
+    return;
+  }
+
+
+  try{
+
+    await addDoc(
+      collection(db,"notes"),
+      {
+        title:title,
+        subject:subject,
+        className:className,
+        description:description,
+        pdfUrl:pdfUrl,
+        createdAt:serverTimestamp(),
+        createdBy:auth.currentUser.uid
+      }
+    );
+
+
+    showMessage(
+      msg,
+      "✅ Note successfully added!",
+      "success"
+    );
+
+
+    document.getElementById("title").value="";
+    document.getElementById("subject").value="";
+    document.getElementById("className").value="";
+    document.getElementById("description").value="";
+    document.getElementById("pdfUrl").value="";
+
+    loadNotes();
+
+  }catch(error){
+
+    showMessage(
+      msg,
+      "Error: "+error.message,
+      "error"
+    );
+
+  }
+
+};
+
+
+/* ============================
+   LOAD NOTES
+   ============================ */
+
+async function loadNotes(){
+
+  const list =
+    document.getElementById("notesList");
+
+  list.innerHTML="Loading...";
+
+  try{
+
+    const snapshot =
+      await getDocs(collection(db,"notes"));
+
+    if(snapshot.empty){
+
+      list.innerHTML="<p>अभी कोई notes नहीं हैं।</p>";
+
+      return;
+    }
+
+    list.innerHTML="";
+
+    snapshot.forEach(noteDoc=>{
+
+      const data=noteDoc.data();
+
+      const div=document.createElement("div");
+
+      div.className="note";
+
+      div.innerHTML=`
+
+        <h3>📘 ${escapeHtml(data.title || "")}</h3>
+
+        <p>
+        <b>Subject:</b>
+        ${escapeHtml(data.subject || "")}
+        </p>
+
+        <p>
+        <b>Class:</b>
+        ${escapeHtml(data.className || "")}
+        </p>
+
+        <p>
+        ${escapeHtml(data.description || "")}
+        </p>
+
+        <a href="${data.pdfUrl}"
+           target="_blank">
+           📄 Open Notes
+        </a>
+
+        <br>
+
+        <button class="delete"
+          onclick="deleteNote('${noteDoc.id}')">
+          🗑️ Delete
+        </button>
+
+      `;
+
+      list.appendChild(div);
+
+    });
+
+  }catch(error){
+
+    list.innerHTML=
+      "<p>Notes load नहीं हुए: "
+      +error.message+
+      "</p>";
+
+  }
+
+}
+
+
+/* ============================
+   DELETE NOTE
+   ============================ */
+
+window.deleteNote = async function(id){
+
+  if(!confirm("क्या आप यह note delete करना चाहते हैं?")){
+    return;
+  }
+
+  try{
+
+    await deleteDoc(
+      doc(db,"notes",id)
+    );
+
+    loadNotes();
+
+  }catch(error){
+
+    alert("Delete error: "+error.message);
+
+  }
+
+};
+
+
+/* ============================
+   LOGOUT
+   ============================ */
+
+window.logout = function(){
+
+  signOut(auth);
+
+};
+
+
+/* ============================
+   MESSAGE
+   ============================ */
+
+function showMessage(element,text,type){
+
+  element.textContent=text;
+
+  element.className=
+    "message "+
+    (type==="success"?"success":"error");
+
+  element.style.display="block";
+
+}
+
+
+/* ============================
+   SECURITY
+   ============================ */
+
+function escapeHtml(text){
+
+  const div=document.createElement("div");
+
+  div.textContent=text;
+
+  return div.innerHTML;
+
+}
+
+</script>
+
+</body>
+</html>
