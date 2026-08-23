@@ -1,132 +1,800 @@
 <!DOCTYPE html>
 <html lang="hi">
-<head><meta name="google-site-verification" content="lkEG2H7E5MbUhI2oerLoPgH6-sgGoluS44Y9uusUUTk" /></head>
+<head>
+  <meta name="google-site-verification" content="lkEG2H7E5MbUhI2oerLoPgH6-sgGoluS44Y9uusUUTk" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Anubhaw Study Zone - Class 10th, 11th और 12th के लिए notes, video classes, test series और exam updates.">
   <title>Anubhaw Study Zone | Learn Today, Lead Tomorrow</title>
+
   <style>
-    :root{--navy:#071b3a;--blue:#0d47a1;--yellow:#ffc400;--green:#20c878;--bg:#f7f9fc;--text:#14213d}
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
-    a{text-decoration:none;color:inherit}
-    .top{background:var(--navy);color:#fff;padding:8px 5%;font-size:13px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-    header{background:#fff;position:sticky;top:0;z-index:20;box-shadow:0 2px 12px #0001}
-    nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
-    .brand img{width:58px;height:58px;border-radius:50%;object-fit:cover;border:3px solid var(--yellow)}
-    .brand span{font-size:22px;line-height:1.05}.brand b{color:var(--yellow)}
-    .links{display:flex;gap:25px;align-items:center;font-weight:700;font-size:14px}
-    .links a:hover{color:var(--blue)}
-    .btn{display:inline-block;background:var(--yellow);padding:11px 19px;border-radius:10px;font-weight:800;border:0;cursor:pointer}
-    .hero{background:linear-gradient(90deg,#061938 0%,#0b2b59 52%,#153e69 100%);color:white}
-    .hero-inner{max-width:1200px;margin:auto;min-height:510px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;padding:50px 20px}
-    .hero h1{font-size:52px;line-height:1.08;margin:10px 0}.hero h1 span{color:var(--yellow)}
-    .hero p{font-size:18px;max-width:600px;color:#e7eef9}
-    .tag{color:var(--yellow);font-weight:800;letter-spacing:.5px}
-    .hero-buttons{display:flex;gap:15px;margin-top:25px;flex-wrap:wrap}
-    .outline{border:2px solid white;color:white;background:transparent}
-    .hero-img{height:440px;border-radius:25px;object-fit:cover;width:100%;box-shadow:0 20px 50px #0005}
-    section{padding:65px 20px}.wrap{max-width:1200px;margin:auto}
-    .title{text-align:center;margin-bottom:35px}.title h2{font-size:32px}.title i{display:block;width:55px;height:4px;background:var(--yellow);margin:8px auto}
-    .grid6{display:grid;grid-template-columns:repeat(6,1fr);gap:15px}
-    .card{background:#fff;padding:24px 15px;border-radius:15px;box-shadow:0 5px 20px #172b4d12;text-align:center}
-    .icon{font-size:32px;margin-bottom:10px}
-    .stats{background:var(--navy);color:#fff}.stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;text-align:center}
-    .stats strong{font-size:28px;color:var(--yellow);display:block}
-    .about{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
-    .about img{width:100%;max-height:420px;object-fit:cover;border-radius:20px}
-    .courses{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-    .course{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 6px 22px #0001;padding:25px;text-align:center}
-    .course h3{margin:10px 0}.course .btn{margin-top:12px;padding:9px 14px}
-    .notice{background:#fff;border-left:5px solid var(--yellow);padding:20px;border-radius:10px;margin:10px 0}
-    footer{background:var(--navy);color:#fff;padding:50px 20px 20px}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:35px}
-    footer h3{margin-bottom:12px;color:var(--yellow)}footer li{list-style:none;margin:6px 0;color:#d8e2f2}
-    .copy{border-top:1px solid #ffffff22;margin-top:30px;padding-top:15px;text-align:center;font-size:13px}
-    .wa{position:fixed;right:20px;bottom:20px;background:#20c878;color:white;padding:13px 18px;border-radius:30px;font-weight:800;z-index:30;box-shadow:0 6px 20px #0003}
-    @media(max-width:900px){.links{display:none}.hero-inner,.about{grid-template-columns:1fr}.hero h1{font-size:40px}.hero-img{height:360px}.grid6{grid-template-columns:repeat(3,1fr)}.courses{grid-template-columns:repeat(2,1fr)}.stats-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}}
-    @media(max-width:560px){.brand span{font-size:16px}.brand img{width:46px;height:46px}.top{font-size:11px}.hero-inner{padding-top:35px}.hero h1{font-size:34px}.hero p{font-size:15px}.grid6,.courses,.stats-grid,.footer-grid{grid-template-columns:1fr}.hero-img{height:330px}section{padding:45px 15px}}
+    :root{
+      --navy:#071b3a;
+      --blue:#0d47a1;
+      --yellow:#ffc400;
+      --green:#20c878;
+      --bg:#f7f9fc;
+      --text:#14213d
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0
+    }
+
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit
+    }
+
+    .top{
+      background:var(--navy);
+      color:#fff;
+      padding:8px 5%;
+      font-size:13px;
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      flex-wrap:wrap
+    }
+
+    header{
+      background:#fff;
+      position:sticky;
+      top:0;
+      z-index:20;
+      box-shadow:0 2px 12px #0001
+    }
+
+    nav{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 20px
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800
+    }
+
+    .brand img{
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      object-fit:cover;
+      border:3px solid var(--yellow)
+    }
+
+    .brand span{
+      font-size:22px;
+      line-height:1.05
+    }
+
+    .brand b{
+      color:var(--yellow)
+    }
+
+    .links{
+      display:flex;
+      gap:25px;
+      align-items:center;
+      font-weight:700;
+      font-size:14px
+    }
+
+    .links a:hover{
+      color:var(--blue)
+    }
+
+    .btn{
+      display:inline-block;
+      background:var(--yellow);
+      padding:11px 19px;
+      border-radius:10px;
+      font-weight:800;
+      border:0;
+      cursor:pointer
+    }
+
+    .hero{
+      background:linear-gradient(
+        90deg,
+        #061938 0%,
+        #0b2b59 52%,
+        #153e69 100%
+      );
+      color:white
+    }
+
+    .hero-inner{
+      max-width:1200px;
+      margin:auto;
+      min-height:510px;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      align-items:center;
+      padding:50px 20px
+    }
+
+    .hero h1{
+      font-size:52px;
+      line-height:1.08;
+      margin:10px 0
+    }
+
+    .hero h1 span{
+      color:var(--yellow)
+    }
+
+    .hero p{
+      font-size:18px;
+      max-width:600px;
+      color:#e7eef9
+    }
+
+    .tag{
+      color:var(--yellow);
+      font-weight:800;
+      letter-spacing:.5px
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:15px;
+      margin-top:25px;
+      flex-wrap:wrap
+    }
+
+    .outline{
+      border:2px solid white;
+      color:white;
+      background:transparent
+    }
+
+    .hero-img{
+      height:440px;
+      border-radius:25px;
+      object-fit:cover;
+      width:100%;
+      box-shadow:0 20px 50px #0005
+    }
+
+    section{
+      padding:65px 20px
+    }
+
+    .wrap{
+      max-width:1200px;
+      margin:auto
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:35px
+    }
+
+    .title h2{
+      font-size:32px
+    }
+
+    .title i{
+      display:block;
+      width:55px;
+      height:4px;
+      background:var(--yellow);
+      margin:8px auto
+    }
+
+    .grid6{
+      display:grid;
+      grid-template-columns:repeat(6,1fr);
+      gap:15px
+    }
+
+    .card{
+      background:#fff;
+      padding:24px 15px;
+      border-radius:15px;
+      box-shadow:0 5px 20px #172b4d12;
+      text-align:center
+    }
+
+    .icon{
+      font-size:32px;
+      margin-bottom:10px
+    }
+
+    .stats{
+      background:var(--navy);
+      color:#fff
+    }
+
+    .stats-grid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:15px;
+      text-align:center
+    }
+
+    .stats strong{
+      font-size:28px;
+      color:var(--yellow);
+      display:block
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:45px;
+      align-items:center
+    }
+
+    .about img{
+      width:100%;
+      max-height:420px;
+      object-fit:cover;
+      border-radius:20px
+    }
+
+    .courses{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px
+    }
+
+    .course{
+      background:#fff;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 6px 22px #0001;
+      padding:25px;
+      text-align:center
+    }
+
+    .course h3{
+      margin:10px 0
+    }
+
+    .course .btn{
+      margin-top:12px;
+      padding:9px 14px
+    }
+
+    .notice{
+      background:#fff;
+      border-left:5px solid var(--yellow);
+      padding:20px;
+      border-radius:10px;
+      margin:10px 0
+    }
+
+    footer{
+      background:var(--navy);
+      color:#fff;
+      padding:50px 20px 20px
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr 1.2fr;
+      gap:35px
+    }
+
+    footer h3{
+      margin-bottom:12px;
+      color:var(--yellow)
+    }
+
+    footer li{
+      list-style:none;
+      margin:6px 0;
+      color:#d8e2f2
+    }
+
+    .copy{
+      border-top:1px solid #ffffff22;
+      margin-top:30px;
+      padding-top:15px;
+      text-align:center;
+      font-size:13px
+    }
+
+    .wa{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      background:#20c878;
+      color:white;
+      padding:13px 18px;
+      border-radius:30px;
+      font-weight:800;
+      z-index:30;
+      box-shadow:0 6px 20px #0003
+    }
+
+    @media(max-width:900px){
+      .links{
+        display:none
+      }
+
+      .hero-inner,
+      .about{
+        grid-template-columns:1fr
+      }
+
+      .hero h1{
+        font-size:40px
+      }
+
+      .hero-img{
+        height:360px
+      }
+
+      .grid6{
+        grid-template-columns:repeat(3,1fr)
+      }
+
+      .courses{
+        grid-template-columns:repeat(2,1fr)
+      }
+
+      .stats-grid{
+        grid-template-columns:repeat(2,1fr)
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr 1fr
+      }
+    }
+
+    @media(max-width:560px){
+      .brand span{
+        font-size:16px
+      }
+
+      .brand img{
+        width:46px;
+        height:46px
+      }
+
+      .top{
+        font-size:11px
+      }
+
+      .hero-inner{
+        padding-top:35px
+      }
+
+      .hero h1{
+        font-size:34px
+      }
+
+      .hero p{
+        font-size:15px
+      }
+
+      .grid6,
+      .courses,
+      .stats-grid,
+      .footer-grid{
+        grid-template-columns:1fr
+      }
+
+      .hero-img{
+        height:330px
+      }
+
+      section{
+        padding:45px 15px
+      }
+    }
   </style>
 </head>
+
 <body>
-  <div class="top"><span>🎓 Welcome to Anubhaw Study Zone</span><span>📧 info@anubhawstudyzone.in &nbsp; | &nbsp; 📞 +91 97934 05849</span></div>
+
+  <div class="top">
+    <span>🎓 Welcome to Anubhaw Study Zone</span>
+    <span>📧 info@anubhawstudyzone.in &nbsp; | &nbsp; 📞 +91 97934 05849</span>
+  </div>
+
   <header>
     <nav>
-      <a class="brand" href="#home"><img src="assets/profile.jpg" alt="Anubhaw Study Zone"><span>ANUBHAW<br><b>STUDY ZONE</b> 📖</span></a>
+
+      <a class="brand" href="#home">
+        <img src="FB_IMG_1784864597492.jpg" alt="Anubhaw Study Zone">
+        <span>
+          ANUBHAW<br>
+          <b>STUDY ZONE</b> 📖
+        </span>
+      </a>
+
       <div class="links">
-        <a href="#home">Home</a><a href="#courses">Courses</a><a href="#notes">Notes</a><a href="#classes">Video Classes</a><a href="#updates">Updates</a><a href="#contact">Contact</a>
+        <a href="#home">Home</a>
+        <a href="#courses">Courses</a>
+        <a href="#notes">Notes</a>
+        <a href="#classes">Video Classes</a>
+        <a href="#updates">Updates</a>
+        <a href="#contact">Contact</a>
       </div>
+
       <a class="btn" href="#contact">Login</a>
+
     </nav>
   </header>
 
   <main id="home">
+
     <section class="hero">
+
       <div class="hero-inner">
+
         <div>
-          <div class="tag">LEARN TODAY, LEAD TOMORROW</div>
-          <h1>Welcome to<br><span>Anubhaw Study Zone</span></h1>
-          <p>Class 10th, 11th और 12th के students के लिए Notes, Video Classes, Live Classes, Test Series और Exam Updates — सब एक जगह।</p>
-          <div class="hero-buttons"><a class="btn" href="#courses">Explore Courses →</a><a class="btn outline" href="#classes">▶ Watch Demo</a></div>
+
+          <div class="tag">
+            LEARN TODAY, LEAD TOMORROW
+          </div>
+
+          <h1>
+            Welcome to<br>
+            <span>Anubhaw Study Zone</span>
+          </h1>
+
+          <p>
+            Class 10th, 11th और 12th के students के लिए
+            Notes, Video Classes, Live Classes, Test Series
+            और Exam Updates — सब एक जगह।
+          </p>
+
+          <div class="hero-buttons">
+            <a class="btn" href="#courses">
+              Explore Courses →
+            </a>
+
+            <a class="btn outline" href="#classes">
+              ▶ Watch Demo
+            </a>
+          </div>
+
         </div>
-        <img class="hero-img" src="assets/profile.jpg" alt="Anubhaw Study Zone">
+
+        <img
+          class="hero-img"
+          src="FB_IMG_1784864597492.jpg"
+          alt="Anubhaw Study Zone"
+        >
+
       </div>
+
     </section>
+
 
     <section>
+
       <div class="wrap">
-        <div class="title"><h2>What We Provide</h2><i></i></div>
-        <div class="grid6">
-          <div class="card"><div class="icon">🎓</div><h3>Quality Education</h3><p>सरल और उपयोगी study content.</p></div>
-          <div class="card" id="notes"><div class="icon">📚</div><h3>Study Material</h3><p>Notes, PDFs और important questions.</p></div>
-          <div class="card" id="classes"><div class="icon">▶️</div><h3>Video Classes</h3><p>Live & recorded learning.</p></div>
-          <div class="card"><div class="icon">📝</div><h3>Test Series</h3><p>Chapter-wise practice tests.</p></div>
-          <div class="card"><div class="icon">💬</div><h3>Doubt Support</h3><p>अपने doubts पूछें.</p></div>
-          <div class="card"><div class="icon">🏆</div><h3>Exam Updates</h3><p>Board और competitive updates.</p></div>
+
+        <div class="title">
+          <h2>What We Provide</h2>
+          <i></i>
         </div>
+
+        <div class="grid6">
+
+          <div class="card">
+            <div class="icon">🎓</div>
+            <h3>Quality Education</h3>
+            <p>सरल और उपयोगी study content.</p>
+          </div>
+
+          <div class="card" id="notes">
+            <div class="icon">📚</div>
+            <h3>Study Material</h3>
+            <p>Notes, PDFs और important questions.</p>
+          </div>
+
+          <div class="card" id="classes">
+            <div class="icon">▶️</div>
+            <h3>Video Classes</h3>
+            <p>Live & recorded learning.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">📝</div>
+            <h3>Test Series</h3>
+            <p>Chapter-wise practice tests.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">💬</div>
+            <h3>Doubt Support</h3>
+            <p>अपने doubts पूछें.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">🏆</div>
+            <h3>Exam Updates</h3>
+            <p>Board और competitive updates.</p>
+          </div>
+
+        </div>
+
       </div>
+
     </section>
 
-    <section class="stats"><div class="wrap stats-grid">
-      <div><strong>10K+</strong>Happy Students</div><div><strong>500+</strong>Study Materials</div><div><strong>1000+</strong>Video Classes</div><div><strong>50+</strong>Expert Teachers</div><div><strong>95%+</strong>Target Success</div>
-    </div></section>
 
-    <section><div class="wrap about">
-      <div><div class="title" style="text-align:left;margin-bottom:15px"><h2>About Anubhaw Study Zone</h2><i style="margin:8px 0"></i></div>
-        <p>Anubhaw Study Zone एक online learning platform है जहाँ students को बेहतर study material, classes और exam preparation resources एक जगह मिलेंगे।</p><br>
-        <p>हमारा लक्ष्य है कि पढ़ाई को आसान, व्यवस्थित और accessible बनाया जाए।</p><br>
-        <a class="btn" href="#contact">Read More →</a>
+    <section class="stats">
+
+      <div class="wrap stats-grid">
+
+        <div>
+          <strong>10K+</strong>
+          Happy Students
+        </div>
+
+        <div>
+          <strong>500+</strong>
+          Study Materials
+        </div>
+
+        <div>
+          <strong>1000+</strong>
+          Video Classes
+        </div>
+
+        <div>
+          <strong>50+</strong>
+          Expert Teachers
+        </div>
+
+        <div>
+          <strong>95%+</strong>
+          Target Success
+        </div>
+
       </div>
-      <img src="assets/profile.jpg" alt="Founder / Anubhaw Study Zone">
-    </div></section>
 
-    <section id="courses"><div class="wrap">
-      <div class="title"><h2>Popular Courses</h2><i></i></div>
-      <div class="courses">
-        <div class="course"><div class="icon">🎓</div><h3>Class 10th</h3><p>Complete Course<br>All Subjects</p><a class="btn" href="#contact">View Course</a></div>
-        <div class="course"><div class="icon">📗</div><h3>Class 11th</h3><p>PCM / PCB / Commerce</p><a class="btn" href="#contact">View Course</a></div>
-        <div class="course"><div class="icon">📘</div><h3>Class 12th</h3><p>Board Exam Preparation</p><a class="btn" href="#contact">View Course</a></div>
-        <div class="course"><div class="icon">⭐</div><h3>Special Batches</h3><p>Board + Competitive Exams</p><a class="btn" href="#contact">View Course</a></div>
+    </section>
+
+
+    <section>
+
+      <div class="wrap about">
+
+        <div>
+
+          <div
+            class="title"
+            style="text-align:left;margin-bottom:15px"
+          >
+            <h2>About Anubhaw Study Zone</h2>
+            <i style="margin:8px 0"></i>
+          </div>
+
+          <p>
+            Anubhaw Study Zone एक online learning platform है
+            जहाँ students को बेहतर study material, classes और
+            exam preparation resources एक जगह मिलेंगे।
+          </p>
+
+          <br>
+
+          <p>
+            हमारा लक्ष्य है कि पढ़ाई को आसान, व्यवस्थित और
+            accessible बनाया जाए।
+          </p>
+
+          <br>
+
+          <a class="btn" href="#contact">
+            Read More →
+          </a>
+
+        </div>
+
+        <img
+          src="FB_IMG_1784864597492.jpg"
+          alt="Founder / Anubhaw Study Zone"
+        >
+
       </div>
-    </div></section>
 
-    <section id="updates"><div class="wrap">
-      <div class="title"><h2>Latest Updates</h2><i></i></div>
-      <div class="notice">📢 <b>New Batch:</b> नए batches और classes की जानकारी यहाँ दिखाई जाएगी।</div>
-      <div class="notice">📝 <b>Exam Update:</b> Board/competitive exam notifications यहाँ publish की जाएंगी।</div>
-      <div class="notice">📚 <b>Study Material:</b> नए notes और PDFs जल्द उपलब्ध होंगे।</div>
-    </div></section>
+    </section>
+
+
+    <section id="courses">
+
+      <div class="wrap">
+
+        <div class="title">
+          <h2>Popular Courses</h2>
+          <i></i>
+        </div>
+
+        <div class="courses">
+
+          <div class="course">
+            <div class="icon">🎓</div>
+            <h3>Class 10th</h3>
+            <p>
+              Complete Course<br>
+              All Subjects
+            </p>
+            <a class="btn" href="#contact">
+              View Course
+            </a>
+          </div>
+
+          <div class="course">
+            <div class="icon">📗</div>
+            <h3>Class 11th</h3>
+            <p>
+              PCM / PCB / Commerce
+            </p>
+            <a class="btn" href="#contact">
+              View Course
+            </a>
+          </div>
+
+          <div class="course">
+            <div class="icon">📘</div>
+            <h3>Class 12th</h3>
+            <p>
+              Board Exam Preparation
+            </p>
+            <a class="btn" href="#contact">
+              View Course
+            </a>
+          </div>
+
+          <div class="course">
+            <div class="icon">⭐</div>
+            <h3>Special Batches</h3>
+            <p>
+              Board + Competitive Exams
+            </p>
+            <a class="btn" href="#contact">
+              View Course
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section id="updates">
+
+      <div class="wrap">
+
+        <div class="title">
+          <h2>Latest Updates</h2>
+          <i></i>
+        </div>
+
+        <div class="notice">
+          📢 <b>New Batch:</b>
+          नए batches और classes की जानकारी यहाँ दिखाई जाएगी।
+        </div>
+
+        <div class="notice">
+          📝 <b>Exam Update:</b>
+          Board/competitive exam notifications यहाँ publish की जाएंगी।
+        </div>
+
+        <div class="notice">
+          📚 <b>Study Material:</b>
+          नए notes और PDFs जल्द उपलब्ध होंगे।
+        </div>
+
+      </div>
+
+    </section>
+
   </main>
 
+
   <footer id="contact">
+
     <div class="wrap footer-grid">
-      <div><div class="brand"><img src="assets/profile.jpg" alt=""><span>ANUBHAW<br><b>STUDY ZONE</b></span></div><p style="margin-top:15px;color:#d8e2f2">Learn Today, Lead Tomorrow.<br>Your Success is Our Goal.</p></div>
-      <div><h3>Quick Links</h3><ul><li>Home</li><li>Courses</li><li>Notes</li><li>Video Classes</li><li>Updates</li></ul></div>
-      <div><h3>Support</h3><ul><li>FAQ</li><li>Doubt Support</li><li>Privacy Policy</li><li>Terms & Conditions</li></ul></div>
-      <div><h3>Contact Us</h3><ul><li>📞 +91 97934 05849</li><li>📧 info@anubhawstudyzone.in</li><li>📍 Uttar Pradesh, India</li></ul></div>
+
+      <div>
+
+        <div class="brand">
+
+          <img
+            src="FB_IMG_1784864597492.jpg"
+            alt="Anubhaw Study Zone"
+          >
+
+          <span>
+            ANUBHAW<br>
+            <b>STUDY ZONE</b>
+          </span>
+
+        </div>
+
+        <p style="margin-top:15px;color:#d8e2f2">
+          Learn Today, Lead Tomorrow.<br>
+          Your Success is Our Goal.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>Quick Links</h3>
+
+        <ul>
+          <li>Home</li>
+          <li>Courses</li>
+          <li>Notes</li>
+          <li>Video Classes</li>
+          <li>Updates</li>
+        </ul>
+
+      </div>
+
+
+      <div>
+
+        <h3>Support</h3>
+
+        <ul>
+          <li>FAQ</li>
+          <li>Doubt Support</li>
+          <li>Privacy Policy</li>
+          <li>Terms & Conditions</li>
+        </ul>
+
+      </div>
+
+
+      <div>
+
+        <h3>Contact Us</h3>
+
+        <ul>
+          <li>📞 +91 97934 05849</li>
+          <li>📧 info@anubhawstudyzone.in</li>
+          <li>📍 Uttar Pradesh, India</li>
+        </ul>
+
+      </div>
+
     </div>
-    <div class="copy">© 2026 Anubhaw Study Zone. All Rights Reserved.</div>
+
+
+    <div class="copy">
+      © 2026 Anubhaw Study Zone. All Rights Reserved.
+    </div>
+
   </footer>
-  <a class="wa" href="https://wa.me/919793405849" target="_blank">💬 Chat on WhatsApp</a>
+
+
+  <a
+    class="wa"
+    href="https://wa.me/919793405849"
+    target="_blank"
+  >
+    💬 Chat on WhatsApp
+  </a>
+
 </body>
 </html>
