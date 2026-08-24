@@ -1,800 +1,1438 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta name="google-site-verification" content="lkEG2H7E5MbUhI2oerLoPgH6-sgGoluS44Y9uusUUTk" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Anubhaw Study Zone - Class 10th, 11th और 12th के लिए notes, video classes, test series और exam updates.">
-  <title>Anubhaw Study Zone | Learn Today, Lead Tomorrow</title>
+
+  <title>Anubhaw Study Centre</title>
 
   <style>
-    :root{
-      --navy:#071b3a;
-      --blue:#0d47a1;
-      --yellow:#ffc400;
-      --green:#20c878;
-      --bg:#f7f9fc;
-      --text:#14213d
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
     }
 
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0
+    body {
+      background: #f4f7fb;
+      color: #222;
     }
 
-    body{
-      font-family:Arial,Helvetica,sans-serif;
-      color:var(--text);
-      background:var(--bg);
-      line-height:1.6
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: white;
+      padding: 25px 15px;
+      text-align: center;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit
+    .centre-photo {
+      width: 115px;
+      height: 115px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin-bottom: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.25);
     }
 
-    .top{
-      background:var(--navy);
-      color:#fff;
-      padding:8px 5%;
-      font-size:13px;
-      display:flex;
-      justify-content:space-between;
-      gap:15px;
-      flex-wrap:wrap
+    header h1 {
+      font-size: 28px;
+      margin-bottom: 7px;
     }
 
-    header{
-      background:#fff;
-      position:sticky;
-      top:0;
-      z-index:20;
-      box-shadow:0 2px 12px #0001
+    header p {
+      font-size: 15px;
     }
 
-    nav{
-      max-width:1200px;
-      margin:auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:12px 20px
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:800
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
     }
 
-    .brand img{
-      width:58px;
-      height:58px;
-      border-radius:50%;
-      object-fit:cover;
-      border:3px solid var(--yellow)
+    .card h2 {
+      margin-bottom: 10px;
+      color: #4f46e5;
     }
 
-    .brand span{
-      font-size:22px;
-      line-height:1.05
+    input,
+    select,
+    button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 15px;
     }
 
-    .brand b{
-      color:var(--yellow)
+    button {
+      background: #4f46e5;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
     }
 
-    .links{
-      display:flex;
-      gap:25px;
-      align-items:center;
-      font-weight:700;
-      font-size:14px
+    button:hover {
+      opacity: .9;
     }
 
-    .links a:hover{
-      color:var(--blue)
+    .logout {
+      background: #dc2626;
     }
 
-    .btn{
-      display:inline-block;
-      background:var(--yellow);
-      padding:11px 19px;
-      border-radius:10px;
-      font-weight:800;
-      border:0;
-      cursor:pointer
+    .delete {
+      background: #dc2626;
     }
 
-    .hero{
-      background:linear-gradient(
-        90deg,
-        #061938 0%,
-        #0b2b59 52%,
-        #153e69 100%
-      );
-      color:white
+    .note {
+      border: 1px solid #e5e7eb;
+      padding: 15px;
+      border-radius: 12px;
+      margin: 12px 0;
+      background: #fafafa;
     }
 
-    .hero-inner{
-      max-width:1200px;
-      margin:auto;
-      min-height:510px;
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      align-items:center;
-      padding:50px 20px
+    .note h3 {
+      color: #4f46e5;
+      margin-bottom: 8px;
     }
 
-    .hero h1{
-      font-size:52px;
-      line-height:1.08;
-      margin:10px 0
+    .download {
+      display: inline-block;
+      background: #16a34a;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 8px;
     }
 
-    .hero h1 span{
-      color:var(--yellow)
+    #adminPanel {
+      display: none;
     }
 
-    .hero p{
-      font-size:18px;
-      max-width:600px;
-      color:#e7eef9
+    #loginBox {
+      max-width: 450px;
+      margin: 30px auto;
     }
 
-    .tag{
-      color:var(--yellow);
-      font-weight:800;
-      letter-spacing:.5px
+    .status {
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 10px;
+      display: none;
     }
 
-    .hero-buttons{
-      display:flex;
-      gap:15px;
-      margin-top:25px;
-      flex-wrap:wrap
+    .success {
+      background: #dcfce7;
+      color: #166534;
     }
 
-    .outline{
-      border:2px solid white;
-      color:white;
-      background:transparent
+    .error {
+      background: #fee2e2;
+      color: #991b1b;
     }
 
-    .hero-img{
-      height:440px;
-      border-radius:25px;
-      object-fit:cover;
-      width:100%;
-      box-shadow:0 20px 50px #0005
+    .topButtons {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
-    section{
-      padding:65px 20px
+    .topButtons h2 {
+      flex: 1;
     }
 
-    .wrap{
-      max-width:1200px;
-      margin:auto
+    .topButtons button {
+      width: auto;
+      padding: 10px 18px;
     }
 
-    .title{
-      text-align:center;
-      margin-bottom:35px
+    .footer {
+      text-align: center;
+      background: #111827;
+      color: white;
+      padding: 20px;
+      margin-top: 30px;
     }
 
-    .title h2{
-      font-size:32px
+    .admin-title {
+      color: #111827 !important;
     }
 
-    .title i{
-      display:block;
-      width:55px;
-      height:4px;
-      background:var(--yellow);
-      margin:8px auto
-    }
+    @media(max-width:600px) {
 
-    .grid6{
-      display:grid;
-      grid-template-columns:repeat(6,1fr);
-      gap:15px
-    }
-
-    .card{
-      background:#fff;
-      padding:24px 15px;
-      border-radius:15px;
-      box-shadow:0 5px 20px #172b4d12;
-      text-align:center
-    }
-
-    .icon{
-      font-size:32px;
-      margin-bottom:10px
-    }
-
-    .stats{
-      background:var(--navy);
-      color:#fff
-    }
-
-    .stats-grid{
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      gap:15px;
-      text-align:center
-    }
-
-    .stats strong{
-      font-size:28px;
-      color:var(--yellow);
-      display:block
-    }
-
-    .about{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:45px;
-      align-items:center
-    }
-
-    .about img{
-      width:100%;
-      max-height:420px;
-      object-fit:cover;
-      border-radius:20px
-    }
-
-    .courses{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:20px
-    }
-
-    .course{
-      background:#fff;
-      border-radius:18px;
-      overflow:hidden;
-      box-shadow:0 6px 22px #0001;
-      padding:25px;
-      text-align:center
-    }
-
-    .course h3{
-      margin:10px 0
-    }
-
-    .course .btn{
-      margin-top:12px;
-      padding:9px 14px
-    }
-
-    .notice{
-      background:#fff;
-      border-left:5px solid var(--yellow);
-      padding:20px;
-      border-radius:10px;
-      margin:10px 0
-    }
-
-    footer{
-      background:var(--navy);
-      color:#fff;
-      padding:50px 20px 20px
-    }
-
-    .footer-grid{
-      display:grid;
-      grid-template-columns:2fr 1fr 1fr 1.2fr;
-      gap:35px
-    }
-
-    footer h3{
-      margin-bottom:12px;
-      color:var(--yellow)
-    }
-
-    footer li{
-      list-style:none;
-      margin:6px 0;
-      color:#d8e2f2
-    }
-
-    .copy{
-      border-top:1px solid #ffffff22;
-      margin-top:30px;
-      padding-top:15px;
-      text-align:center;
-      font-size:13px
-    }
-
-    .wa{
-      position:fixed;
-      right:20px;
-      bottom:20px;
-      background:#20c878;
-      color:white;
-      padding:13px 18px;
-      border-radius:30px;
-      font-weight:800;
-      z-index:30;
-      box-shadow:0 6px 20px #0003
-    }
-
-    @media(max-width:900px){
-      .links{
-        display:none
+      header h1 {
+        font-size: 23px;
       }
 
-      .hero-inner,
-      .about{
-        grid-template-columns:1fr
+      .container {
+        padding: 12px;
       }
 
-      .hero h1{
-        font-size:40px
+      .card {
+        padding: 15px;
       }
 
-      .hero-img{
-        height:360px
+      .centre-photo {
+        width: 100px;
+        height: 100px;
       }
 
-      .grid6{
-        grid-template-columns:repeat(3,1fr)
-      }
-
-      .courses{
-        grid-template-columns:repeat(2,1fr)
-      }
-
-      .stats-grid{
-        grid-template-columns:repeat(2,1fr)
-      }
-
-      .footer-grid{
-        grid-template-columns:1fr 1fr
-      }
-    }
-
-    @media(max-width:560px){
-      .brand span{
-        font-size:16px
-      }
-
-      .brand img{
-        width:46px;
-        height:46px
-      }
-
-      .top{
-        font-size:11px
-      }
-
-      .hero-inner{
-        padding-top:35px
-      }
-
-      .hero h1{
-        font-size:34px
-      }
-
-      .hero p{
-        font-size:15px
-      }
-
-      .grid6,
-      .courses,
-      .stats-grid,
-      .footer-grid{
-        grid-template-columns:1fr
-      }
-
-      .hero-img{
-        height:330px
-      }
-
-      section{
-        padding:45px 15px
-      }
     }
   </style>
 </head>
 
+
 <body>
 
-  <div class="top">
-    <span>🎓 Welcome to Anubhaw Study Zone</span>
-    <span>📧 info@anubhawstudyzone.in &nbsp; | &nbsp; 📞 +91 97934 05849</span>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+  <!-- आपकी फोटो -->
+  <img
+    src="FB_IMG_1784864597492.jpg"
+    alt="Anubhaw Study Centre"
+    class="centre-photo"
+    onerror="this.style.display='none'"
+  >
+
+  <h1>📚 Anubhaw Study Centre</h1>
+
+  <p>
+    Notes • Study Material • Education
+  </p>
+
+</header>
+
+
+
+<div class="container">
+
+
+<!-- =====================================================
+     STUDENT NOTES SECTION
+===================================================== -->
+
+<div class="card">
+
+  <h2>📚 Study Notes</h2>
+
+  <p>
+    अपनी Class और Subject की Notes यहाँ देखें।
+  </p>
+
+
+  <!-- CLASS FILTER -->
+
+  <select id="classFilter" onchange="loadNotes()">
+
+    <option value="">
+      सभी Classes
+    </option>
+
+    <option value="10th">
+      Class 10th
+    </option>
+
+    <option value="11th">
+      Class 11th
+    </option>
+
+    <option value="12th">
+      Class 12th
+    </option>
+
+    <option value="Graduation">
+      Graduation
+    </option>
+
+  </select>
+
+
+
+  <!-- SUBJECT FILTER -->
+
+  <select id="subjectFilter" onchange="loadNotes()">
+
+    <option value="">
+      सभी Subjects
+    </option>
+
+    <option value="Physics">
+      Physics
+    </option>
+
+    <option value="Chemistry">
+      Chemistry
+    </option>
+
+    <option value="Math">
+      Math
+    </option>
+
+    <option value="Biology">
+      Biology
+    </option>
+
+    <option value="English">
+      English
+    </option>
+
+    <option value="Hindi">
+      Hindi
+    </option>
+
+  </select>
+
+
+
+  <!-- NOTES LIST -->
+
+  <div id="notesList">
+
+    Loading Notes...
+
   </div>
 
-  <header>
-    <nav>
+</div>
 
-      <a class="brand" href="#home">
-        <img src="anubhaw_photo_640x740_face-2.jpg" alt="Anubhaw Study Zone">
-        <span>
-          ANUBHAW<br>
-          <b>STUDY ZONE</b> 📖
-        </span>
-      </a>
 
-      <div class="links">
-        <a href="#home">Home</a>
-        <a href="#courses">Courses</a>
-        <a href="#notes">Notes</a>
-        <a href="#classes">Video Classes</a>
-        <a href="#updates">Updates</a>
-        <a href="#contact">Contact</a>
-      </div>
 
-      <a class="btn" href="#contact">Login</a>
+<!-- =====================================================
+     ADMIN LOGIN
+===================================================== -->
 
-    </nav>
-  </header>
+<div class="card" id="loginBox">
 
-  <main id="home">
+  <h2>🔐 Admin Login</h2>
 
-    <section class="hero">
+  <p>
+    केवल Admin के लिए
+  </p>
 
-      <div class="hero-inner">
 
-        <div>
+  <input
+    type="email"
+    id="adminEmail"
+    placeholder="Admin Email"
+  >
 
-          <div class="tag">
-            LEARN TODAY, LEAD TOMORROW
-          </div>
 
-          <h1>
-            Welcome to<br>
-            <span>Anubhaw Study Zone</span>
-          </h1>
+  <input
+    type="password"
+    id="adminPassword"
+    placeholder="Admin Password"
+  >
+
+
+  <button onclick="adminLogin()">
+
+    🔐 Login
+
+  </button>
+
+
+  <div
+    id="loginStatus"
+    class="status"
+  ></div>
+
+</div>
+
+
+
+<!-- =====================================================
+     ADMIN PANEL
+===================================================== -->
+
+<div
+  class="card"
+  id="adminPanel"
+>
+
+  <div class="topButtons">
+
+    <h2 class="admin-title">
+      👨‍💻 Admin Dashboard
+    </h2>
+
+    <button
+      class="logout"
+      onclick="adminLogout()"
+    >
+      Logout
+    </button>
+
+  </div>
+
+
+  <hr style="margin:15px 0;">
+
+
+
+  <!-- UPLOAD -->
+
+  <h3>
+    📤 Upload New Notes
+  </h3>
+
+
+  <input
+    type="text"
+    id="noteTitle"
+    placeholder="Notes का नाम"
+  >
+
+
+  <select id="noteClass">
+
+    <option value="10th">
+      Class 10th
+    </option>
+
+    <option value="11th">
+      Class 11th
+    </option>
+
+    <option value="12th">
+      Class 12th
+    </option>
+
+    <option value="Graduation">
+      Graduation
+    </option>
+
+  </select>
+
+
+  <select id="noteSubject">
+
+    <option value="Physics">
+      Physics
+    </option>
+
+    <option value="Chemistry">
+      Chemistry
+    </option>
+
+    <option value="Math">
+      Math
+    </option>
+
+    <option value="Biology">
+      Biology
+    </option>
+
+    <option value="English">
+      English
+    </option>
+
+    <option value="Hindi">
+      Hindi
+    </option>
+
+  </select>
+
+
+  <input
+    type="file"
+    id="noteFile"
+    accept=".pdf,application/pdf"
+  >
+
+
+  <button onclick="uploadNote()">
+
+    📤 Upload PDF Notes
+
+  </button>
+
+
+  <div
+    id="uploadStatus"
+    class="status"
+  ></div>
+
+
+
+  <hr style="margin:25px 0;">
+
+
+
+  <!-- ADMIN NOTES -->
+
+  <h3>
+    🗂️ Uploaded Notes
+  </h3>
+
+
+  <div id="adminNotesList">
+
+    Loading...
+
+  </div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<div class="footer">
+
+  <p>
+    © 2026 Anubhaw Study Centre
+  </p>
+
+  <p>
+    📚 Learn • Practice • Succeed
+  </p>
+
+</div>
+
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
+<script type="module">
+
+
+/* =====================================================
+   FIREBASE IMPORT
+===================================================== */
+
+import {
+  initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  deleteDoc,
+  doc
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  deleteObject
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+
+
+/* =====================================================
+   🔥 FIREBASE CONFIG
+=====================================================
+
+   यहाँ अपनी Firebase configuration डालना है.
+
+===================================================== */
+
+const firebaseConfig = {
+
+  apiKey:
+    "YOUR_API_KEY",
+
+  authDomain:
+    "YOUR_PROJECT.firebaseapp.com",
+
+  projectId:
+    "YOUR_PROJECT_ID",
+
+  storageBucket:
+    "YOUR_PROJECT.firebasestorage.app",
+
+  messagingSenderId:
+    "YOUR_SENDER_ID",
+
+  appId:
+    "YOUR_APP_ID"
+
+};
+
+
+
+/* =====================================================
+   FIREBASE START
+===================================================== */
+
+const app =
+  initializeApp(firebaseConfig);
+
+
+const auth =
+  getAuth(app);
+
+
+const db =
+  getFirestore(app);
+
+
+const storage =
+  getStorage(app);
+
+
+
+/* =====================================================
+   ADMIN LOGIN
+===================================================== */
+
+window.adminLogin =
+async function() {
+
+
+  const email =
+    document
+    .getElementById("adminEmail")
+    .value
+    .trim();
+
+
+  const password =
+    document
+    .getElementById("adminPassword")
+    .value;
+
+
+  const status =
+    document
+    .getElementById("loginStatus");
+
+
+  if(!email || !password){
+
+    status.style.display = "block";
+
+    status.className =
+      "status error";
+
+    status.innerText =
+      "❌ Email और Password डालें";
+
+    return;
+
+  }
+
+
+  try {
+
+
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+
+    status.style.display =
+      "block";
+
+
+    status.className =
+      "status success";
+
+
+    status.innerText =
+      "✅ Login Successful";
+
+
+  }
+
+  catch(error) {
+
+
+    console.error(error);
+
+
+    status.style.display =
+      "block";
+
+
+    status.className =
+      "status error";
+
+
+    status.innerText =
+      "❌ Email या Password गलत है";
+
+
+  }
+
+};
+
+
+
+/* =====================================================
+   AUTH STATE
+===================================================== */
+
+onAuthStateChanged(
+  auth,
+  (user) => {
+
+
+    if(user) {
+
+
+      document
+      .getElementById("loginBox")
+      .style.display =
+        "none";
+
+
+      document
+      .getElementById("adminPanel")
+      .style.display =
+        "block";
+
+
+      loadAdminNotes();
+
+
+    }
+
+    else {
+
+
+      document
+      .getElementById("loginBox")
+      .style.display =
+        "block";
+
+
+      document
+      .getElementById("adminPanel")
+      .style.display =
+        "none";
+
+
+    }
+
+  }
+);
+
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+window.adminLogout =
+async function() {
+
+  await signOut(auth);
+
+};
+
+
+
+/* =====================================================
+   UPLOAD NOTE
+===================================================== */
+
+window.uploadNote =
+async function() {
+
+
+  const user =
+    auth.currentUser;
+
+
+  if(!user){
+
+    alert(
+      "पहले Admin Login करें"
+    );
+
+    return;
+
+  }
+
+
+  const title =
+    document
+    .getElementById("noteTitle")
+    .value
+    .trim();
+
+
+  const noteClass =
+    document
+    .getElementById("noteClass")
+    .value;
+
+
+  const subject =
+    document
+    .getElementById("noteSubject")
+    .value;
+
+
+  const file =
+    document
+    .getElementById("noteFile")
+    .files[0];
+
+
+  const status =
+    document
+    .getElementById("uploadStatus");
+
+
+  if(!title){
+
+    alert(
+      "Notes का नाम डालें"
+    );
+
+    return;
+
+  }
+
+
+  if(!file){
+
+    alert(
+      "PDF file चुनें"
+    );
+
+    return;
+
+  }
+
+
+  if(
+    file.type !==
+    "application/pdf"
+  ){
+
+    alert(
+      "❌ केवल PDF file upload करें"
+    );
+
+    return;
+
+  }
+
+
+  try {
+
+
+    status.style.display =
+      "block";
+
+
+    status.className =
+      "status success";
+
+
+    status.innerText =
+      "⏳ PDF Upload हो रही है...";
+
+
+    const safeName =
+      file.name
+      .replace(
+        /[^a-zA-Z0-9._-]/g,
+        "_"
+      );
+
+
+    const fileName =
+      Date.now()
+      + "_"
+      + safeName;
+
+
+    const storageRef =
+      ref(
+        storage,
+        "notes/" + fileName
+      );
+
+
+    await uploadBytes(
+      storageRef,
+      file
+    );
+
+
+    const downloadURL =
+      await getDownloadURL(
+        storageRef
+      );
+
+
+    await addDoc(
+      collection(
+        db,
+        "notes"
+      ),
+      {
+
+        title:
+          title,
+
+        className:
+          noteClass,
+
+        subject:
+          subject,
+
+        fileURL:
+          downloadURL,
+
+        filePath:
+          "notes/" + fileName,
+
+        createdAt:
+          Date.now()
+
+      }
+    );
+
+
+    status.innerText =
+      "✅ Notes Successfully Upload हो गई";
+
+
+    document
+    .getElementById("noteTitle")
+    .value = "";
+
+
+    document
+    .getElementById("noteFile")
+    .value = "";
+
+
+    await loadNotes();
+
+
+    await loadAdminNotes();
+
+
+  }
+
+  catch(error) {
+
+
+    console.error(error);
+
+
+    status.className =
+      "status error";
+
+
+    status.innerText =
+      "❌ Upload Failed: "
+      + error.message;
+
+
+  }
+
+};
+
+
+
+/* =====================================================
+   LOAD STUDENT NOTES
+===================================================== */
+
+window.loadNotes =
+async function() {
+
+
+  const list =
+    document
+    .getElementById("notesList");
+
+
+  list.innerHTML =
+    "⏳ Loading Notes...";
+
+
+  const selectedClass =
+    document
+    .getElementById("classFilter")
+    .value;
+
+
+  const selectedSubject =
+    document
+    .getElementById("subjectFilter")
+    .value;
+
+
+  try {
+
+
+    const snapshot =
+      await getDocs(
+        collection(
+          db,
+          "notes"
+        )
+      );
+
+
+    list.innerHTML = "";
+
+
+    let count = 0;
+
+
+    snapshot.forEach(
+      (docSnap) => {
+
+
+        const note =
+          docSnap.data();
+
+
+        if(
+          selectedClass &&
+          note.className !==
+          selectedClass
+        ){
+
+          return;
+
+        }
+
+
+        if(
+          selectedSubject &&
+          note.subject !==
+          selectedSubject
+        ){
+
+          return;
+
+        }
+
+
+        count++;
+
+
+        const div =
+          document
+          .createElement("div");
+
+
+        div.className =
+          "note";
+
+
+        div.innerHTML = `
+
+          <h3>
+            📄 ${escapeHTML(note.title)}
+          </h3>
 
           <p>
-            Class 10th, 11th और 12th के students के लिए
-            Notes, Video Classes, Live Classes, Test Series
-            और Exam Updates — सब एक जगह।
+            🎓 Class:
+            ${escapeHTML(note.className)}
           </p>
 
-          <div class="hero-buttons">
-            <a class="btn" href="#courses">
-              Explore Courses →
-            </a>
+          <p>
+            📚 Subject:
+            ${escapeHTML(note.subject)}
+          </p>
 
-            <a class="btn outline" href="#classes">
-              ▶ Watch Demo
-            </a>
-          </div>
-
-        </div>
-
-        <img
-          class="hero-img"
-          src="anubhaw_photo_640x740_face-2.jpg"
-          alt="Anubhaw Study Zone"
-        >
-
-      </div>
-
-    </section>
-
-
-    <section>
-
-      <div class="wrap">
-
-        <div class="title">
-          <h2>What We Provide</h2>
-          <i></i>
-        </div>
-
-        <div class="grid6">
-
-          <div class="card">
-            <div class="icon">🎓</div>
-            <h3>Quality Education</h3>
-            <p>सरल और उपयोगी study content.</p>
-          </div>
-
-          <div class="card" id="notes">
-            <div class="icon">📚</div>
-            <h3>Study Material</h3>
-            <p>Notes, PDFs और important questions.</p>
-          </div>
-
-          <div class="card" id="classes">
-            <div class="icon">▶️</div>
-            <h3>Video Classes</h3>
-            <p>Live & recorded learning.</p>
-          </div>
-
-          <div class="card">
-            <div class="icon">📝</div>
-            <h3>Test Series</h3>
-            <p>Chapter-wise practice tests.</p>
-          </div>
-
-          <div class="card">
-            <div class="icon">💬</div>
-            <h3>Doubt Support</h3>
-            <p>अपने doubts पूछें.</p>
-          </div>
-
-          <div class="card">
-            <div class="icon">🏆</div>
-            <h3>Exam Updates</h3>
-            <p>Board और competitive updates.</p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <section class="stats">
-
-      <div class="wrap stats-grid">
-
-        <div>
-          <strong>10K+</strong>
-          Happy Students
-        </div>
-
-        <div>
-          <strong>500+</strong>
-          Study Materials
-        </div>
-
-        <div>
-          <strong>1000+</strong>
-          Video Classes
-        </div>
-
-        <div>
-          <strong>50+</strong>
-          Expert Teachers
-        </div>
-
-        <div>
-          <strong>95%+</strong>
-          Target Success
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <section>
-
-      <div class="wrap about">
-
-        <div>
-
-          <div
-            class="title"
-            style="text-align:left;margin-bottom:15px"
+          <a
+            class="download"
+            href="${note.fileURL}"
+            target="_blank"
+            rel="noopener"
           >
-            <h2>About Anubhaw Study Zone</h2>
-            <i style="margin:8px 0"></i>
-          </div>
-
-          <p>
-            Anubhaw Study Zone एक online learning platform है
-            जहाँ students को बेहतर study material, classes और
-            exam preparation resources एक जगह मिलेंगे।
-          </p>
-
-          <br>
-
-          <p>
-            हमारा लक्ष्य है कि पढ़ाई को आसान, व्यवस्थित और
-            accessible बनाया जाए।
-          </p>
-
-          <br>
-
-          <a class="btn" href="#contact">
-            Read More →
+            📥 PDF देखें / Download
           </a>
 
-        </div>
-
-        <img
-          src="anubhaw_photo_640x740_face-2.jpg"
-          alt="Founder / Anubhaw Study Zone"
-        >
-
-      </div>
-
-    </section>
+        `;
 
 
-    <section id="courses">
-
-      <div class="wrap">
-
-        <div class="title">
-          <h2>Popular Courses</h2>
-          <i></i>
-        </div>
-
-        <div class="courses">
-
-          <div class="course">
-            <div class="icon">🎓</div>
-            <h3>Class 10th</h3>
-            <p>
-              Complete Course<br>
-              All Subjects
-            </p>
-            <a class="btn" href="#contact">
-              View Course
-            </a>
-          </div>
-
-          <div class="course">
-            <div class="icon">📗</div>
-            <h3>Class 11th</h3>
-            <p>
-              PCM / PCB / Commerce
-            </p>
-            <a class="btn" href="#contact">
-              View Course
-            </a>
-          </div>
-
-          <div class="course">
-            <div class="icon">📘</div>
-            <h3>Class 12th</h3>
-            <p>
-              Board Exam Preparation
-            </p>
-            <a class="btn" href="#contact">
-              View Course
-            </a>
-          </div>
-
-          <div class="course">
-            <div class="icon">⭐</div>
-            <h3>Special Batches</h3>
-            <p>
-              Board + Competitive Exams
-            </p>
-            <a class="btn" href="#contact">
-              View Course
-            </a>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
+        list.appendChild(
+          div
+        );
 
 
-    <section id="updates">
-
-      <div class="wrap">
-
-        <div class="title">
-          <h2>Latest Updates</h2>
-          <i></i>
-        </div>
-
-        <div class="notice">
-          📢 <b>New Batch:</b>
-          नए batches और classes की जानकारी यहाँ दिखाई जाएगी।
-        </div>
-
-        <div class="notice">
-          📝 <b>Exam Update:</b>
-          Board/competitive exam notifications यहाँ publish की जाएंगी।
-        </div>
-
-        <div class="notice">
-          📚 <b>Study Material:</b>
-          नए notes और PDFs जल्द उपलब्ध होंगे।
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
+      }
+    );
 
 
-  <footer id="contact">
+    if(count === 0){
 
-    <div class="wrap footer-grid">
+      list.innerHTML =
+        "<p>📭 अभी कोई Notes उपलब्ध नहीं हैं।</p>";
 
-      <div>
+    }
 
-        <div class="brand">
 
-          <img
-            src="anubhaw_photo_640x740_face-2.jpg"
-            alt="Anubhaw Study Zone"
+  }
+
+  catch(error) {
+
+
+    console.error(error);
+
+
+    list.innerHTML =
+      "❌ Notes load नहीं हो सकीं";
+
+
+  }
+
+};
+
+
+
+/* =====================================================
+   ADMIN NOTES
+===================================================== */
+
+async function loadAdminNotes() {
+
+
+  const list =
+    document
+    .getElementById(
+      "adminNotesList"
+    );
+
+
+  list.innerHTML =
+    "⏳ Loading...";
+
+
+  try {
+
+
+    const snapshot =
+      await getDocs(
+        collection(
+          db,
+          "notes"
+        )
+      );
+
+
+    list.innerHTML = "";
+
+
+    let count = 0;
+
+
+    snapshot.forEach(
+      (docSnap) => {
+
+
+        count++;
+
+
+        const note =
+          docSnap.data();
+
+
+        const div =
+          document
+          .createElement("div");
+
+
+        div.className =
+          "note";
+
+
+        div.innerHTML = `
+
+          <h3>
+            📄 ${escapeHTML(note.title)}
+          </h3>
+
+          <p>
+            🎓 ${escapeHTML(note.className)}
+          </p>
+
+          <p>
+            📚 ${escapeHTML(note.subject)}
+          </p>
+
+          <a
+            class="download"
+            href="${note.fileURL}"
+            target="_blank"
+            rel="noopener"
           >
+            👁️ View
+          </a>
 
-          <span>
-            ANUBHAW<br>
-            <b>STUDY ZONE</b>
-          </span>
+          <button
+            class="delete"
+            data-id="${docSnap.id}"
+            data-path="${encodeURIComponent(note.filePath)}"
+          >
+            🗑️ Delete
+          </button>
 
-        </div>
-
-        <p style="margin-top:15px;color:#d8e2f2">
-          Learn Today, Lead Tomorrow.<br>
-          Your Success is Our Goal.
-        </p>
-
-      </div>
+        `;
 
 
-      <div>
-
-        <h3>Quick Links</h3>
-
-        <ul>
-          <li>Home</li>
-          <li>Courses</li>
-          <li>Notes</li>
-          <li>Video Classes</li>
-          <li>Updates</li>
-        </ul>
-
-      </div>
+        const deleteButton =
+          div.querySelector(
+            ".delete"
+          );
 
 
-      <div>
+        deleteButton.onclick =
+          function() {
 
-        <h3>Support</h3>
+            deleteNote(
+              this.dataset.id,
+              decodeURIComponent(
+                this.dataset.path
+              )
+            );
 
-        <ul>
-          <li>FAQ</li>
-          <li>Doubt Support</li>
-          <li>Privacy Policy</li>
-          <li>Terms & Conditions</li>
-        </ul>
-
-      </div>
-
-
-      <div>
-
-        <h3>Contact Us</h3>
-
-        <ul>
-          <li>📞 +91 97934 05849</li>
-          <li>📧 info@anubhawstudyzone.in</li>
-          <li>📍 Uttar Pradesh, India</li>
-        </ul>
-
-      </div>
-
-    </div>
+          };
 
 
-    <div class="copy">
-      © 2026 Anubhaw Study Zone. All Rights Reserved.
-    </div>
-
-  </footer>
+        list.appendChild(
+          div
+        );
 
 
-  <a
-    class="wa"
-    href="https://wa.me/919793405849"
-    target="_blank"
-  >
-    💬 Chat on WhatsApp
-  </a>
+      }
+    );
+
+
+    if(count === 0){
+
+      list.innerHTML =
+        "<p>📭 अभी कोई Notes upload नहीं हुई हैं।</p>";
+
+    }
+
+
+  }
+
+  catch(error) {
+
+
+    console.error(error);
+
+
+    list.innerHTML =
+      "❌ Admin Notes load नहीं हुईं";
+
+
+  }
+
+}
+
+
+
+/* =====================================================
+   DELETE NOTE
+===================================================== */
+
+window.deleteNote =
+async function(
+  id,
+  filePath
+) {
+
+
+  const user =
+    auth.currentUser;
+
+
+  if(!user){
+
+    alert(
+      "Admin Login required"
+    );
+
+    return;
+
+  }
+
+
+  const confirmDelete =
+    confirm(
+      "क्या आप यह Notes delete करना चाहते हैं?"
+    );
+
+
+  if(!confirmDelete){
+
+    return;
+
+  }
+
+
+  try {
+
+
+    await deleteDoc(
+      doc(
+        db,
+        "notes",
+        id
+      )
+    );
+
+
+    try {
+
+
+      const storageRef =
+        ref(
+          storage,
+          filePath
+        );
+
+
+      await deleteObject(
+        storageRef
+      );
+
+
+    }
+
+    catch(storageError) {
+
+
+      console.log(
+        "Storage file delete नहीं हुई:",
+        storageError
+      );
+
+
+    }
+
+
+    await loadNotes();
+
+
+    await loadAdminNotes();
+
+
+    alert(
+      "✅ Notes Delete हो गई"
+    );
+
+
+  }
+
+  catch(error) {
+
+
+    console.error(error);
+
+
+    alert(
+      "❌ Delete Failed"
+    );
+
+
+  }
+
+};
+
+
+
+/* =====================================================
+   SECURITY HELPER
+===================================================== */
+
+function escapeHTML(text) {
+
+
+  return String(text)
+
+    .replaceAll(
+      "&",
+      "&amp;"
+    )
+
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
+
+    .replaceAll(
+      ">",
+      "&gt;"
+    )
+
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+
+    .replaceAll(
+      "'",
+      "&#039;"
+    );
+
+}
+
+
+
+/* =====================================================
+   FIRST LOAD
+===================================================== */
+
+loadNotes();
+
+
+</script>
 
 </body>
 </html>
