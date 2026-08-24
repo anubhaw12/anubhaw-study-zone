@@ -1,1436 +1,1373 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Anubhaw Study Centre</title>
 
-  <title>Anubhaw Study Centre</title>
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+body{
+  background:#f3f6fb;
+  color:#222;
+}
 
-    body {
-      background: #f4f7fb;
-      color: #222;
-    }
+header{
+  background:linear-gradient(135deg,#4f46e5,#7c3aed);
+  color:white;
+  text-align:center;
+  padding:25px 15px;
+}
 
-    /* HEADER */
-    header {
-      background: linear-gradient(135deg, #4f46e5, #7c3aed);
-      color: white;
-      padding: 25px 15px;
-      text-align: center;
-    }
+.logo{
+  width:105px;
+  height:105px;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid white;
+  margin-bottom:10px;
+}
 
-    .centre-photo {
-      width: 115px;
-      height: 115px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid white;
-      margin-bottom: 10px;
-      box-shadow: 0 5px 20px rgba(0,0,0,.25);
-    }
+header h1{
+  font-size:27px;
+}
 
-    header h1 {
-      font-size: 28px;
-      margin-bottom: 7px;
-    }
+.container{
+  max-width:950px;
+  margin:auto;
+  padding:20px;
+}
 
-    header p {
-      font-size: 15px;
-    }
+.card{
+  background:white;
+  padding:22px;
+  border-radius:16px;
+  margin:20px 0;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-    }
+h2{
+  color:#4f46e5;
+  margin-bottom:12px;
+}
 
-    .card {
-      background: white;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,.08);
-    }
+input,select,button{
+  width:100%;
+  padding:13px;
+  margin:7px 0;
+  border:1px solid #ddd;
+  border-radius:9px;
+  font-size:15px;
+}
 
-    .card h2 {
-      margin-bottom: 10px;
-      color: #4f46e5;
-    }
+button{
+  border:0;
+  background:#4f46e5;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
 
-    input,
-    select,
-    button {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      font-size: 15px;
-    }
+button:hover{
+  opacity:.9;
+}
 
-    button {
-      background: #4f46e5;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-    }
+.green{
+  background:#16a34a;
+}
 
-    button:hover {
-      opacity: .9;
-    }
+.red{
+  background:#dc2626;
+}
 
-    .logout {
-      background: #dc2626;
-    }
+.gray{
+  background:#374151;
+}
 
-    .delete {
-      background: #dc2626;
-    }
+.hidden{
+  display:none;
+}
 
-    .note {
-      border: 1px solid #e5e7eb;
-      padding: 15px;
-      border-radius: 12px;
-      margin: 12px 0;
-      background: #fafafa;
-    }
+.note{
+  background:#f8fafc;
+  border:1px solid #e5e7eb;
+  padding:16px;
+  border-radius:12px;
+  margin:12px 0;
+}
 
-    .note h3 {
-      color: #4f46e5;
-      margin-bottom: 8px;
-    }
+.note h3{
+  color:#4f46e5;
+  margin-bottom:7px;
+}
 
-    .download {
-      display: inline-block;
-      background: #16a34a;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 8px;
-      text-decoration: none;
-      margin-top: 8px;
-    }
+.download{
+  display:inline-block;
+  background:#16a34a;
+  color:white;
+  padding:10px 15px;
+  border-radius:8px;
+  text-decoration:none;
+  margin-top:8px;
+}
 
-    #adminPanel {
-      display: none;
-    }
+.status{
+  padding:10px;
+  border-radius:8px;
+  margin-top:8px;
+  display:none;
+}
 
-    #loginBox {
-      max-width: 450px;
-      margin: 30px auto;
-    }
+.success{
+  background:#dcfce7;
+  color:#166534;
+}
 
-    .status {
-      padding: 10px;
-      border-radius: 8px;
-      margin-top: 10px;
-      display: none;
-    }
+.error{
+  background:#fee2e2;
+  color:#991b1b;
+}
 
-    .success {
-      background: #dcfce7;
-      color: #166534;
-    }
+.switch{
+  text-align:center;
+  margin-top:12px;
+  color:#4f46e5;
+  cursor:pointer;
+}
 
-    .error {
-      background: #fee2e2;
-      color: #991b1b;
-    }
+.userbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:15px;
+}
 
-    .topButtons {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+.userbar button{
+  width:auto;
+  padding:10px 18px;
+}
 
-    .topButtons h2 {
-      flex: 1;
-    }
+footer{
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:20px;
+  margin-top:30px;
+}
 
-    .topButtons button {
-      width: auto;
-      padding: 10px 18px;
-    }
+@media(max-width:600px){
+  header h1{
+    font-size:23px;
+  }
 
-    .footer {
-      text-align: center;
-      background: #111827;
-      color: white;
-      padding: 20px;
-      margin-top: 30px;
-    }
-
-    .admin-title {
-      color: #111827 !important;
-    }
-
-    @media(max-width:600px) {
-
-      header h1 {
-        font-size: 23px;
-      }
-
-      .container {
-        padding: 12px;
-      }
-
-      .card {
-        padding: 15px;
-      }
-
-      .centre-photo {
-        width: 100px;
-        height: 100px;
-      }
-
-    }
-  </style>
+  .container{
+    padding:12px;
+  }
+}
+</style>
 </head>
-
 
 <body>
 
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header>
 
-  <!-- आपकी फोटो -->
-  <img
-    src="FB_IMG_1784864597492.jpg"
-    alt="Anubhaw Study Centre"
-    class="centre-photo"
-    onerror="this.style.display='none'"
-  >
+<img
+  src="FB_IMG_1784864597492.jpg"
+  class="logo"
+  alt="Anubhaw Study Centre"
+>
 
-  <h1>📚 Anubhaw Study Centre</h1>
+<h1>📚 Anubhaw Study Centre</h1>
 
-  <p>
-    Notes • Study Material • Education
-  </p>
+<p>Learn • Practice • Succeed</p>
 
 </header>
-
 
 
 <div class="container">
 
 
-<!-- =====================================================
-     STUDENT NOTES SECTION
-===================================================== -->
+<!-- ================= LOGIN ================= -->
+
+<div id="loginPage" class="card">
+
+<h2>🔐 Student Login</h2>
+
+<input
+  type="email"
+  id="loginEmail"
+  placeholder="अपना Email डालें"
+>
+
+<input
+  type="password"
+  id="loginPassword"
+  placeholder="Password डालें"
+>
+
+<button onclick="studentLogin()">
+🔐 Login
+</button>
+
+<div id="loginStatus" class="status"></div>
+
+<p
+  class="switch"
+  onclick="showSignup()"
+>
+नया Account बनाना है? Signup करें
+</p>
+
+<p
+  class="switch"
+  onclick="showAdmin()"
+>
+👨‍💻 Admin Login
+</p>
+
+</div>
+
+
+<!-- ================= SIGNUP ================= -->
+
+<div id="signupPage" class="card hidden">
+
+<h2>👤 Create Student Account</h2>
+
+<input
+  type="text"
+  id="signupName"
+  placeholder="अपना नाम"
+>
+
+<input
+  type="email"
+  id="signupEmail"
+  placeholder="Email"
+>
+
+<input
+  type="password"
+  id="signupPassword"
+  placeholder="Password (कम से कम 6 अक्षर)"
+>
+
+<button onclick="studentSignup()">
+📝 Signup
+</button>
+
+<div id="signupStatus" class="status"></div>
+
+<p
+  class="switch"
+  onclick="showLogin()"
+>
+पहले से Account है? Login करें
+</p>
+
+</div>
+
+
+<!-- ================= ADMIN LOGIN ================= -->
+
+<div id="adminLoginPage" class="card hidden">
+
+<h2>👨‍💻 Admin Login</h2>
+
+<input
+  type="email"
+  id="adminEmail"
+  placeholder="Admin Email"
+>
+
+<input
+  type="password"
+  id="adminPassword"
+  placeholder="Admin Password"
+>
+
+<button onclick="adminLogin()">
+🔐 Admin Login
+</button>
+
+<div id="adminStatus" class="status"></div>
+
+<p
+  class="switch"
+  onclick="showLogin()"
+>
+← Student Login
+</p>
+
+</div>
+
+
+<!-- ================= STUDENT DASHBOARD ================= -->
+
+<div id="dashboard" class="hidden">
 
 <div class="card">
 
-  <h2>📚 Study Notes</h2>
+<div class="userbar">
 
-  <p>
-    अपनी Class और Subject की Notes यहाँ देखें।
-  </p>
+<div>
+<h2>📚 Study Dashboard</h2>
+<p id="welcomeText"></p>
+</div>
 
-
-  <!-- CLASS FILTER -->
-
-  <select id="classFilter" onchange="loadNotes()">
-
-    <option value="">
-      सभी Classes
-    </option>
-
-    <option value="10th">
-      Class 10th
-    </option>
-
-    <option value="11th">
-      Class 11th
-    </option>
-
-    <option value="12th">
-      Class 12th
-    </option>
-
-    <option value="Graduation">
-      Graduation
-    </option>
-
-  </select>
-
-
-
-  <!-- SUBJECT FILTER -->
-
-  <select id="subjectFilter" onchange="loadNotes()">
-
-    <option value="">
-      सभी Subjects
-    </option>
-
-    <option value="Physics">
-      Physics
-    </option>
-
-    <option value="Chemistry">
-      Chemistry
-    </option>
-
-    <option value="Math">
-      Math
-    </option>
-
-    <option value="Biology">
-      Biology
-    </option>
-
-    <option value="English">
-      English
-    </option>
-
-    <option value="Hindi">
-      Hindi
-    </option>
-
-  </select>
-
-
-
-  <!-- NOTES LIST -->
-
-  <div id="notesList">
-
-    Loading Notes...
-
-  </div>
+<button
+  class="red"
+  onclick="logout()"
+>
+🚪 Logout
+</button>
 
 </div>
 
+<hr>
+
+<h3 style="margin-top:15px;">
+📖 Available Notes
+</h3>
 
 
-<!-- =====================================================
-     ADMIN LOGIN
-===================================================== -->
-
-<div class="card" id="loginBox">
-
-  <h2>🔐 Admin Login</h2>
-
-  <p>
-    केवल Admin के लिए
-  </p>
-
-
-  <input
-    type="email"
-    id="adminEmail"
-    placeholder="Admin Email"
-  >
-
-
-  <input
-    type="password"
-    id="adminPassword"
-    placeholder="Admin Password"
-  >
-
-
-  <button onclick="adminLogin()">
-
-    🔐 Login
-
-  </button>
-
-
-  <div
-    id="loginStatus"
-    class="status"
-  ></div>
-
-</div>
-
-
-
-<!-- =====================================================
-     ADMIN PANEL
-===================================================== -->
-
-<div
-  class="card"
-  id="adminPanel"
+<select
+  id="classFilter"
+  onchange="loadNotes()"
 >
 
-  <div class="topButtons">
+<option value="">
+सभी Classes
+</option>
 
-    <h2 class="admin-title">
-      👨‍💻 Admin Dashboard
-    </h2>
+<option value="10th">
+Class 10th
+</option>
 
-    <button
-      class="logout"
-      onclick="adminLogout()"
-    >
-      Logout
-    </button>
+<option value="11th">
+Class 11th
+</option>
 
-  </div>
+<option value="12th">
+Class 12th
+</option>
 
+<option value="Graduation">
+Graduation
+</option>
 
-  <hr style="margin:15px 0;">
-
-
-
-  <!-- UPLOAD -->
-
-  <h3>
-    📤 Upload New Notes
-  </h3>
+</select>
 
 
-  <input
-    type="text"
-    id="noteTitle"
-    placeholder="Notes का नाम"
-  >
+<select
+  id="subjectFilter"
+  onchange="loadNotes()"
+>
+
+<option value="">
+सभी Subjects
+</option>
+
+<option value="Physics">
+Physics
+</option>
+
+<option value="Chemistry">
+Chemistry
+</option>
+
+<option value="Math">
+Math
+</option>
+
+<option value="Biology">
+Biology
+</option>
+
+<option value="English">
+English
+</option>
+
+<option value="Hindi">
+Hindi
+</option>
+
+</select>
 
 
-  <select id="noteClass">
-
-    <option value="10th">
-      Class 10th
-    </option>
-
-    <option value="11th">
-      Class 11th
-    </option>
-
-    <option value="12th">
-      Class 12th
-    </option>
-
-    <option value="Graduation">
-      Graduation
-    </option>
-
-  </select>
-
-
-  <select id="noteSubject">
-
-    <option value="Physics">
-      Physics
-    </option>
-
-    <option value="Chemistry">
-      Chemistry
-    </option>
-
-    <option value="Math">
-      Math
-    </option>
-
-    <option value="Biology">
-      Biology
-    </option>
-
-    <option value="English">
-      English
-    </option>
-
-    <option value="Hindi">
-      Hindi
-    </option>
-
-  </select>
-
-
-  <input
-    type="file"
-    id="noteFile"
-    accept=".pdf,application/pdf"
-  >
-
-
-  <button onclick="uploadNote()">
-
-    📤 Upload PDF Notes
-
-  </button>
-
-
-  <div
-    id="uploadStatus"
-    class="status"
-  ></div>
-
-
-
-  <hr style="margin:25px 0;">
-
-
-
-  <!-- ADMIN NOTES -->
-
-  <h3>
-    🗂️ Uploaded Notes
-  </h3>
-
-
-  <div id="adminNotesList">
-
-    Loading...
-
-  </div>
+<div id="notesList">
+Loading...
+</div>
 
 </div>
 
 </div>
 
 
+<!-- ================= ADMIN PANEL ================= -->
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<div id="adminPanel" class="hidden">
 
-<div class="footer">
+<div class="card">
 
-  <p>
-    © 2026 Anubhaw Study Centre
-  </p>
+<div class="userbar">
 
-  <p>
-    📚 Learn • Practice • Succeed
-  </p>
+<h2>👨‍💻 Admin Panel</h2>
+
+<button
+  class="red"
+  onclick="logout()"
+>
+Logout
+</button>
+
+</div>
+
+<hr>
+
+<h3>📤 Upload Notes</h3>
+
+<input
+  type="text"
+  id="noteTitle"
+  placeholder="Notes का नाम"
+>
+
+<select id="noteClass">
+
+<option value="10th">Class 10th</option>
+<option value="11th">Class 11th</option>
+<option value="12th">Class 12th</option>
+<option value="Graduation">Graduation</option>
+
+</select>
+
+<select id="noteSubject">
+
+<option value="Physics">Physics</option>
+<option value="Chemistry">Chemistry</option>
+<option value="Math">Math</option>
+<option value="Biology">Biology</option>
+<option value="English">English</option>
+<option value="Hindi">Hindi</option>
+
+</select>
+
+<input
+  type="file"
+  id="noteFile"
+  accept="application/pdf,.pdf"
+>
+
+<button onclick="uploadNote()">
+📤 Upload PDF
+</button>
+
+<div id="uploadStatus" class="status"></div>
+
+<hr style="margin:20px 0">
+
+<h3>🗂️ Uploaded Notes</h3>
+
+<div id="adminNotesList">
+Loading...
+</div>
+
+</div>
+
+</div>
 
 </div>
 
 
+<footer>
 
-<!-- =====================================================
-     FIREBASE
-===================================================== -->
+<p>© 2026 Anubhaw Study Centre</p>
+<p>📚 Learn • Practice • Succeed</p>
+
+</footer>
+
 
 <script type="module">
 
-
-/* =====================================================
+/* ==========================================
    FIREBASE IMPORT
-===================================================== */
+========================================== */
 
 import {
-  initializeApp
+initializeApp
 }
 from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-
 import {
-  getAuth,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut
+getAuth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword,
+onAuthStateChanged,
+signOut
 }
 from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-
 import {
-  getFirestore,
-  collection,
-  addDoc,
-  getDocs,
-  deleteDoc,
-  doc
+getFirestore,
+collection,
+addDoc,
+getDocs,
+deleteDoc,
+doc
 }
 from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-
 import {
-  getStorage,
-  ref,
-  uploadBytes,
-  getDownloadURL,
-  deleteObject
+getStorage,
+ref,
+uploadBytes,
+getDownloadURL,
+deleteObject
 }
 from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
 
-
-/* =====================================================
+/* ==========================================
    🔥 FIREBASE CONFIG
-=====================================================
+========================================== */
 
-   यहाँ अपनी Firebase configuration डालना है.
+const firebaseConfig={
 
-===================================================== */
+apiKey:
+"YOUR_API_KEY",
 
-const firebaseConfig = {
+authDomain:
+"YOUR_PROJECT.firebaseapp.com",
 
-  apiKey:
-    "YOUR_API_KEY",
+projectId:
+"YOUR_PROJECT_ID",
 
-  authDomain:
-    "YOUR_PROJECT.firebaseapp.com",
+storageBucket:
+"YOUR_PROJECT.firebasestorage.app",
 
-  projectId:
-    "YOUR_PROJECT_ID",
+messagingSenderId:
+"YOUR_SENDER_ID",
 
-  storageBucket:
-    "YOUR_PROJECT.firebasestorage.app",
-
-  messagingSenderId:
-    "YOUR_SENDER_ID",
-
-  appId:
-    "YOUR_APP_ID"
+appId:
+"YOUR_APP_ID"
 
 };
 
 
+/* ==========================================
+   START FIREBASE
+========================================== */
 
-/* =====================================================
-   FIREBASE START
-===================================================== */
+const app=initializeApp(firebaseConfig);
 
-const app =
-  initializeApp(firebaseConfig);
+const auth=getAuth(app);
 
+const db=getFirestore(app);
 
-const auth =
-  getAuth(app);
-
-
-const db =
-  getFirestore(app);
+const storage=getStorage(app);
 
 
-const storage =
-  getStorage(app);
+/* ==========================================
+   PAGE FUNCTIONS
+========================================== */
 
+window.showLogin=function(){
 
+document.getElementById("loginPage")
+.classList.remove("hidden");
 
-/* =====================================================
-   ADMIN LOGIN
-===================================================== */
+document.getElementById("signupPage")
+.classList.add("hidden");
 
-window.adminLogin =
-async function() {
-
-
-  const email =
-    document
-    .getElementById("adminEmail")
-    .value
-    .trim();
-
-
-  const password =
-    document
-    .getElementById("adminPassword")
-    .value;
-
-
-  const status =
-    document
-    .getElementById("loginStatus");
-
-
-  if(!email || !password){
-
-    status.style.display = "block";
-
-    status.className =
-      "status error";
-
-    status.innerText =
-      "❌ Email और Password डालें";
-
-    return;
-
-  }
-
-
-  try {
-
-
-    await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-
-
-    status.style.display =
-      "block";
-
-
-    status.className =
-      "status success";
-
-
-    status.innerText =
-      "✅ Login Successful";
-
-
-  }
-
-  catch(error) {
-
-
-    console.error(error);
-
-
-    status.style.display =
-      "block";
-
-
-    status.className =
-      "status error";
-
-
-    status.innerText =
-      "❌ Email या Password गलत है";
-
-
-  }
+document.getElementById("adminLoginPage")
+.classList.add("hidden");
 
 };
 
 
+window.showSignup=function(){
 
-/* =====================================================
-   AUTH STATE
-===================================================== */
+document.getElementById("loginPage")
+.classList.add("hidden");
 
-onAuthStateChanged(
-  auth,
-  (user) => {
+document.getElementById("signupPage")
+.classList.remove("hidden");
 
+document.getElementById("adminLoginPage")
+.classList.add("hidden");
 
-    if(user) {
-
-
-      document
-      .getElementById("loginBox")
-      .style.display =
-        "none";
+};
 
 
-      document
-      .getElementById("adminPanel")
-      .style.display =
-        "block";
+window.showAdmin=function(){
+
+document.getElementById("loginPage")
+.classList.add("hidden");
+
+document.getElementById("signupPage")
+.classList.add("hidden");
+
+document.getElementById("adminLoginPage")
+.classList.remove("hidden");
+
+};
 
 
-      loadAdminNotes();
+/* ==========================================
+   STUDENT SIGNUP
+========================================== */
+
+window.studentSignup=async function(){
+
+const name=
+document.getElementById("signupName").value.trim();
+
+const email=
+document.getElementById("signupEmail").value.trim();
+
+const password=
+document.getElementById("signupPassword").value;
+
+const status=
+document.getElementById("signupStatus");
 
 
-    }
+if(!name||!email||!password){
 
-    else {
+showStatus(
+status,
+"❌ सभी जानकारी भरें",
+false
+);
 
-
-      document
-      .getElementById("loginBox")
-      .style.display =
-        "block";
-
-
-      document
-      .getElementById("adminPanel")
-      .style.display =
-        "none";
+return;
+}
 
 
-    }
+if(password.length<6){
 
-  }
+showStatus(
+status,
+"❌ Password कम से कम 6 अक्षर का होना चाहिए",
+false
+);
+
+return;
+}
+
+
+try{
+
+const result=
+await createUserWithEmailAndPassword(
+auth,
+email,
+password
 );
 
 
+/* Student profile */
 
-/* =====================================================
-   LOGOUT
-===================================================== */
+await addDoc(
+collection(db,"students"),
+{
+uid:result.user.uid,
+name:name,
+email:email,
+createdAt:Date.now()
+}
+);
 
-window.adminLogout =
-async function() {
 
-  await signOut(auth);
+showStatus(
+status,
+"✅ Account बन गया!",
+true
+);
+
+
+}
+
+catch(error){
+
+console.error(error);
+
+showStatus(
+status,
+"❌ "+error.message,
+false
+);
+
+}
 
 };
 
 
+/* ==========================================
+   STUDENT LOGIN
+========================================== */
 
-/* =====================================================
-   UPLOAD NOTE
-===================================================== */
+window.studentLogin=async function(){
 
-window.uploadNote =
-async function() {
+const email=
+document.getElementById("loginEmail").value.trim();
 
+const password=
+document.getElementById("loginPassword").value;
 
-  const user =
-    auth.currentUser;
+const status=
+document.getElementById("loginStatus");
 
 
-  if(!user){
+try{
 
-    alert(
-      "पहले Admin Login करें"
-    );
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
 
-    return;
+showStatus(
+status,
+"✅ Login Successful",
+true
+);
 
-  }
+}
 
+catch(error){
 
-  const title =
-    document
-    .getElementById("noteTitle")
-    .value
-    .trim();
+showStatus(
+status,
+"❌ Email या Password गलत है",
+false
+);
 
-
-  const noteClass =
-    document
-    .getElementById("noteClass")
-    .value;
-
-
-  const subject =
-    document
-    .getElementById("noteSubject")
-    .value;
-
-
-  const file =
-    document
-    .getElementById("noteFile")
-    .files[0];
-
-
-  const status =
-    document
-    .getElementById("uploadStatus");
-
-
-  if(!title){
-
-    alert(
-      "Notes का नाम डालें"
-    );
-
-    return;
-
-  }
-
-
-  if(!file){
-
-    alert(
-      "PDF file चुनें"
-    );
-
-    return;
-
-  }
-
-
-  if(
-    file.type !==
-    "application/pdf"
-  ){
-
-    alert(
-      "❌ केवल PDF file upload करें"
-    );
-
-    return;
-
-  }
-
-
-  try {
-
-
-    status.style.display =
-      "block";
-
-
-    status.className =
-      "status success";
-
-
-    status.innerText =
-      "⏳ PDF Upload हो रही है...";
-
-
-    const safeName =
-      file.name
-      .replace(
-        /[^a-zA-Z0-9._-]/g,
-        "_"
-      );
-
-
-    const fileName =
-      Date.now()
-      + "_"
-      + safeName;
-
-
-    const storageRef =
-      ref(
-        storage,
-        "notes/" + fileName
-      );
-
-
-    await uploadBytes(
-      storageRef,
-      file
-    );
-
-
-    const downloadURL =
-      await getDownloadURL(
-        storageRef
-      );
-
-
-    await addDoc(
-      collection(
-        db,
-        "notes"
-      ),
-      {
-
-        title:
-          title,
-
-        className:
-          noteClass,
-
-        subject:
-          subject,
-
-        fileURL:
-          downloadURL,
-
-        filePath:
-          "notes/" + fileName,
-
-        createdAt:
-          Date.now()
-
-      }
-    );
-
-
-    status.innerText =
-      "✅ Notes Successfully Upload हो गई";
-
-
-    document
-    .getElementById("noteTitle")
-    .value = "";
-
-
-    document
-    .getElementById("noteFile")
-    .value = "";
-
-
-    await loadNotes();
-
-
-    await loadAdminNotes();
-
-
-  }
-
-  catch(error) {
-
-
-    console.error(error);
-
-
-    status.className =
-      "status error";
-
-
-    status.innerText =
-      "❌ Upload Failed: "
-      + error.message;
-
-
-  }
+}
 
 };
 
 
+/* ==========================================
+   ADMIN LOGIN
+========================================== */
 
-/* =====================================================
-   LOAD STUDENT NOTES
-===================================================== */
+window.adminLogin=async function(){
 
-window.loadNotes =
-async function() {
+const email=
+document.getElementById("adminEmail").value.trim();
 
+const password=
+document.getElementById("adminPassword").value;
 
-  const list =
-    document
-    .getElementById("notesList");
+const status=
+document.getElementById("adminStatus");
 
 
-  list.innerHTML =
-    "⏳ Loading Notes...";
+try{
 
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
 
-  const selectedClass =
-    document
-    .getElementById("classFilter")
-    .value;
 
+/*
+IMPORTANT:
+अपने Admin email को यहाँ बदलना है
+*/
 
-  const selectedSubject =
-    document
-    .getElementById("subjectFilter")
-    .value;
+if(email!=="YOUR_ADMIN_EMAIL"){
 
+await signOut(auth);
 
-  try {
+showStatus(
+status,
+"❌ यह Admin Account नहीं है",
+false
+);
 
-
-    const snapshot =
-      await getDocs(
-        collection(
-          db,
-          "notes"
-        )
-      );
-
-
-    list.innerHTML = "";
-
-
-    let count = 0;
-
-
-    snapshot.forEach(
-      (docSnap) => {
-
-
-        const note =
-          docSnap.data();
-
-
-        if(
-          selectedClass &&
-          note.className !==
-          selectedClass
-        ){
-
-          return;
-
-        }
-
-
-        if(
-          selectedSubject &&
-          note.subject !==
-          selectedSubject
-        ){
-
-          return;
-
-        }
-
-
-        count++;
-
-
-        const div =
-          document
-          .createElement("div");
-
-
-        div.className =
-          "note";
-
-
-        div.innerHTML = `
-
-          <h3>
-            📄 ${escapeHTML(note.title)}
-          </h3>
-
-          <p>
-            🎓 Class:
-            ${escapeHTML(note.className)}
-          </p>
-
-          <p>
-            📚 Subject:
-            ${escapeHTML(note.subject)}
-          </p>
-
-          <a
-            class="download"
-            href="${note.fileURL}"
-            target="_blank"
-            rel="noopener"
-          >
-            📥 PDF देखें / Download
-          </a>
-
-        `;
-
-
-        list.appendChild(
-          div
-        );
-
-
-      }
-    );
-
-
-    if(count === 0){
-
-      list.innerHTML =
-        "<p>📭 अभी कोई Notes उपलब्ध नहीं हैं।</p>";
-
-    }
-
-
-  }
-
-  catch(error) {
-
-
-    console.error(error);
-
-
-    list.innerHTML =
-      "❌ Notes load नहीं हो सकीं";
-
-
-  }
-
-};
-
-
-
-/* =====================================================
-   ADMIN NOTES
-===================================================== */
-
-async function loadAdminNotes() {
-
-
-  const list =
-    document
-    .getElementById(
-      "adminNotesList"
-    );
-
-
-  list.innerHTML =
-    "⏳ Loading...";
-
-
-  try {
-
-
-    const snapshot =
-      await getDocs(
-        collection(
-          db,
-          "notes"
-        )
-      );
-
-
-    list.innerHTML = "";
-
-
-    let count = 0;
-
-
-    snapshot.forEach(
-      (docSnap) => {
-
-
-        count++;
-
-
-        const note =
-          docSnap.data();
-
-
-        const div =
-          document
-          .createElement("div");
-
-
-        div.className =
-          "note";
-
-
-        div.innerHTML = `
-
-          <h3>
-            📄 ${escapeHTML(note.title)}
-          </h3>
-
-          <p>
-            🎓 ${escapeHTML(note.className)}
-          </p>
-
-          <p>
-            📚 ${escapeHTML(note.subject)}
-          </p>
-
-          <a
-            class="download"
-            href="${note.fileURL}"
-            target="_blank"
-            rel="noopener"
-          >
-            👁️ View
-          </a>
-
-          <button
-            class="delete"
-            data-id="${docSnap.id}"
-            data-path="${encodeURIComponent(note.filePath)}"
-          >
-            🗑️ Delete
-          </button>
-
-        `;
-
-
-        const deleteButton =
-          div.querySelector(
-            ".delete"
-          );
-
-
-        deleteButton.onclick =
-          function() {
-
-            deleteNote(
-              this.dataset.id,
-              decodeURIComponent(
-                this.dataset.path
-              )
-            );
-
-          };
-
-
-        list.appendChild(
-          div
-        );
-
-
-      }
-    );
-
-
-    if(count === 0){
-
-      list.innerHTML =
-        "<p>📭 अभी कोई Notes upload नहीं हुई हैं।</p>";
-
-    }
-
-
-  }
-
-  catch(error) {
-
-
-    console.error(error);
-
-
-    list.innerHTML =
-      "❌ Admin Notes load नहीं हुईं";
-
-
-  }
+return;
 
 }
 
 
-
-/* =====================================================
-   DELETE NOTE
-===================================================== */
-
-window.deleteNote =
-async function(
-  id,
-  filePath
-) {
+showStatus(
+status,
+"✅ Admin Login Successful",
+true
+);
 
 
-  const user =
-    auth.currentUser;
+document.getElementById("adminLoginPage")
+.classList.add("hidden");
 
+document.getElementById("adminPanel")
+.classList.remove("hidden");
 
-  if(!user){
+loadAdminNotes();
 
-    alert(
-      "Admin Login required"
-    );
+}
 
-    return;
+catch(error){
 
-  }
+showStatus(
+status,
+"❌ Admin Login Failed",
+false
+);
 
-
-  const confirmDelete =
-    confirm(
-      "क्या आप यह Notes delete करना चाहते हैं?"
-    );
-
-
-  if(!confirmDelete){
-
-    return;
-
-  }
-
-
-  try {
-
-
-    await deleteDoc(
-      doc(
-        db,
-        "notes",
-        id
-      )
-    );
-
-
-    try {
-
-
-      const storageRef =
-        ref(
-          storage,
-          filePath
-        );
-
-
-      await deleteObject(
-        storageRef
-      );
-
-
-    }
-
-    catch(storageError) {
-
-
-      console.log(
-        "Storage file delete नहीं हुई:",
-        storageError
-      );
-
-
-    }
-
-
-    await loadNotes();
-
-
-    await loadAdminNotes();
-
-
-    alert(
-      "✅ Notes Delete हो गई"
-    );
-
-
-  }
-
-  catch(error) {
-
-
-    console.error(error);
-
-
-    alert(
-      "❌ Delete Failed"
-    );
-
-
-  }
+}
 
 };
 
 
+/* ==========================================
+   AUTH STATE
+========================================== */
 
-/* =====================================================
-   SECURITY HELPER
-===================================================== */
+onAuthStateChanged(
+auth,
+async(user)=>{
 
-function escapeHTML(text) {
+if(!user){
 
-
-  return String(text)
-
-    .replaceAll(
-      "&",
-      "&amp;"
-    )
-
-    .replaceAll(
-      "<",
-      "&lt;"
-    )
-
-    .replaceAll(
-      ">",
-      "&gt;"
-    )
-
-    .replaceAll(
-      '"',
-      "&quot;"
-    )
-
-    .replaceAll(
-      "'",
-      "&#039;"
-    );
+return;
 
 }
 
 
+/*
+अगर Admin email है तो Admin Panel
+*/
 
-/* =====================================================
-   FIRST LOAD
-===================================================== */
+if(user.email==="YOUR_ADMIN_EMAIL"){
+
+document.getElementById("loginPage")
+.classList.add("hidden");
+
+document.getElementById("signupPage")
+.classList.add("hidden");
+
+document.getElementById("adminLoginPage")
+.classList.add("hidden");
+
+document.getElementById("dashboard")
+.classList.add("hidden");
+
+document.getElementById("adminPanel")
+.classList.remove("hidden");
+
+loadAdminNotes();
+
+return;
+
+}
+
+
+/*
+Normal Student
+*/
+
+document.getElementById("loginPage")
+.classList.add("hidden");
+
+document.getElementById("signupPage")
+.classList.add("hidden");
+
+document.getElementById("adminLoginPage")
+.classList.add("hidden");
+
+document.getElementById("dashboard")
+.classList.remove("hidden");
+
+document.getElementById("adminPanel")
+.classList.add("hidden");
+
+document.getElementById("welcomeText")
+.innerText=
+"Welcome! 🎓 आपका Study Dashboard तैयार है।";
 
 loadNotes();
 
+});
+
+
+/* ==========================================
+   LOGOUT
+========================================== */
+
+window.logout=async function(){
+
+await signOut(auth);
+
+location.reload();
+
+};
+
+
+/* ==========================================
+   LOAD NOTES
+========================================== */
+
+window.loadNotes=async function(){
+
+const list=
+document.getElementById("notesList");
+
+list.innerHTML="⏳ Loading Notes...";
+
+
+const selectedClass=
+document.getElementById("classFilter").value;
+
+const selectedSubject=
+document.getElementById("subjectFilter").value;
+
+
+try{
+
+const snapshot=
+await getDocs(
+collection(db,"notes")
+);
+
+
+list.innerHTML="";
+
+let count=0;
+
+
+snapshot.forEach(
+docSnap=>{
+
+const note=
+docSnap.data();
+
+
+if(
+selectedClass &&
+note.className!==selectedClass
+)return;
+
+
+if(
+selectedSubject &&
+note.subject!==selectedSubject
+)return;
+
+
+count++;
+
+
+const div=
+document.createElement("div");
+
+div.className="note";
+
+
+div.innerHTML=`
+
+<h3>
+📄 ${escapeHTML(note.title)}
+</h3>
+
+<p>
+🎓 Class:
+${escapeHTML(note.className)}
+</p>
+
+<p>
+📚 Subject:
+${escapeHTML(note.subject)}
+</p>
+
+<a
+href="${note.fileURL}"
+target="_blank"
+class="download"
+>
+📥 PDF देखें / Download
+</a>
+
+`;
+
+
+list.appendChild(div);
+
+});
+
+
+if(count===0){
+
+list.innerHTML=
+"📭 अभी कोई Notes उपलब्ध नहीं हैं।";
+
+}
+
+}
+
+catch(error){
+
+console.error(error);
+
+list.innerHTML=
+"❌ Notes load नहीं हो सकीं";
+
+}
+
+};
+
+
+/* ==========================================
+   ADMIN UPLOAD
+========================================== */
+
+window.uploadNote=async function(){
+
+const user=auth.currentUser;
+
+if(!user){
+
+alert("Admin Login करें");
+
+return;
+
+}
+
+
+if(user.email!=="YOUR_ADMIN_EMAIL"){
+
+alert("❌ Admin permission required");
+
+return;
+
+}
+
+
+const title=
+document.getElementById("noteTitle")
+.value.trim();
+
+const noteClass=
+document.getElementById("noteClass")
+.value;
+
+const subject=
+document.getElementById("noteSubject")
+.value;
+
+const file=
+document.getElementById("noteFile")
+.files[0];
+
+const status=
+document.getElementById("uploadStatus");
+
+
+if(!title||!file){
+
+showStatus(
+status,
+"❌ Notes name और PDF दोनों डालें",
+false
+);
+
+return;
+
+}
+
+
+if(file.type!=="application/pdf"){
+
+showStatus(
+status,
+"❌ केवल PDF upload करें",
+false
+);
+
+return;
+
+}
+
+
+try{
+
+showStatus(
+status,
+"⏳ Upload हो रही है...",
+true
+);
+
+
+const filename=
+Date.now()+"_"+file.name
+.replace(
+/[^a-zA-Z0-9._-]/g,
+"_"
+);
+
+
+const storageRef=
+ref(
+storage,
+"notes/"+filename
+);
+
+
+await uploadBytes(
+storageRef,
+file
+);
+
+
+const url=
+await getDownloadURL(
+storageRef
+);
+
+
+await addDoc(
+collection(db,"notes"),
+{
+
+title:title,
+
+className:noteClass,
+
+subject:subject,
+
+fileURL:url,
+
+filePath:
+"notes/"+filename,
+
+createdAt:Date.now()
+
+}
+);
+
+
+showStatus(
+status,
+"✅ Notes Upload हो गई",
+true
+);
+
+
+document.getElementById("noteTitle")
+.value="";
+
+document.getElementById("noteFile")
+.value="";
+
+
+loadAdminNotes();
+
+}
+
+catch(error){
+
+console.error(error);
+
+showStatus(
+status,
+"❌ Upload Failed",
+false
+);
+
+}
+
+};
+
+
+/* ==========================================
+   ADMIN NOTES
+========================================== */
+
+async function loadAdminNotes(){
+
+const list=
+document.getElementById("adminNotesList");
+
+list.innerHTML="⏳ Loading...";
+
+
+const snapshot=
+await getDocs(
+collection(db,"notes")
+);
+
+
+list.innerHTML="";
+
+
+snapshot.forEach(
+docSnap=>{
+
+const note=
+docSnap.data();
+
+const div=
+document.createElement("div");
+
+div.className="note";
+
+
+div.innerHTML=`
+
+<h3>
+📄 ${escapeHTML(note.title)}
+</h3>
+
+<p>
+🎓 ${escapeHTML(note.className)}
+</p>
+
+<p>
+📚 ${escapeHTML(note.subject)}
+</p>
+
+<a
+href="${note.fileURL}"
+target="_blank"
+class="download"
+>
+👁️ View PDF
+</a>
+
+<button
+class="red"
+>
+🗑️ Delete
+</button>
+
+`;
+
+
+div.querySelector("button")
+.onclick=
+()=>deleteNote(
+docSnap.id,
+note.filePath
+);
+
+
+list.appendChild(div);
+
+});
+
+}
+
+
+/* ==========================================
+   DELETE NOTE
+========================================== */
+
+async function deleteNote(
+id,
+filePath
+){
+
+if(!confirm(
+"क्या आप यह Notes Delete करना चाहते हैं?"
+))return;
+
+
+try{
+
+await deleteDoc(
+doc(db,"notes",id)
+);
+
+
+try{
+
+await deleteObject(
+ref(storage,filePath)
+);
+
+}catch(e){
+
+console.log(e);
+
+}
+
+
+loadAdminNotes();
+
+alert(
+"✅ Notes Delete हो गई"
+);
+
+}
+
+catch(error){
+
+alert(
+"❌ Delete Failed"
+);
+
+}
+
+}
+
+
+/* ==========================================
+   STATUS
+========================================== */
+
+function showStatus(
+element,
+message,
+success
+){
+
+element.style.display="block";
+
+element.className=
+success
+?"status success"
+:"status error";
+
+element.innerText=message;
+
+}
+
+
+/* ==========================================
+   HTML SECURITY
+========================================== */
+
+function escapeHTML(text){
+
+return String(text)
+
+.replaceAll("&","&amp;")
+
+.replaceAll("<","&lt;")
+
+.replaceAll(">","&gt;")
+
+.replaceAll('"',"&quot;")
+
+.replaceAll("'","&#039;");
+
+}
 
 </script>
 
